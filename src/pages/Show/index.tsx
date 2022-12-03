@@ -2,7 +2,7 @@ import { useEffect,useState } from "react"
 import { useParams } from "react-router-dom"
 import MenuItem from "../../header/Menu"
 import { DeleteOutlined } from '@ant-design/icons';
-import { Card ,Button,Spin} from 'antd';
+import { Card ,Button,Spin, Space} from 'antd';
 import { Link,useNavigate} from "react-router-dom";
 
 
@@ -20,7 +20,7 @@ export default function ShowUserDetails(){
     const {id} = useParams()
     const [userdates,setUserdate] = useState<Userdates>({id:0,name:"",email:"",gender:"",status:""});
     const naviagate = useNavigate();
-
+    const [load,setLoad] = useState(false)
     useEffect(()=>{
 
      
@@ -29,6 +29,7 @@ export default function ShowUserDetails(){
       const token:string = "6d0b476b75722346175107c721f473de218526ace3a7fc9a9fa1139f862a22e7"
       
          try{
+             setLoad(true)
              const response = await fetch(`https://gorest.co.in/public/v2/users/${id}`,{
                method:"GET",
                headers:{
@@ -42,6 +43,8 @@ export default function ShowUserDetails(){
              //alert(data.id)
          }catch(error){
             //alert("Request error ,please wait and try again")
+         }finally{
+          setLoad(false)
          }
       }
 
@@ -72,7 +75,14 @@ export default function ShowUserDetails(){
     return(
         <>
         <MenuItem/>
+        {
+         load &&  
+         <Space size="middle">
+          <Spin size="large" />
+        </Space>
+        }
         <Card
+       
             style={{ width: 300 }}
         >
 
