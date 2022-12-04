@@ -141,7 +141,7 @@ const { Title } = Typography;
               rules={[{ required: true, message: 'Please choose your status!' }]}
        >
           <Radio.Group onChange={(e)=>setStatus(e.target.value)}>
-            <Radio value="activo"> Active </Radio>
+            <Radio value="active"> Active </Radio>
             <Radio value="inactive"> Inactive </Radio>
           </Radio.Group>
         </Form.Item>
