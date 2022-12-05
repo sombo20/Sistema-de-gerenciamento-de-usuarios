@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MenuItem from "../../header/Menu";
-import { Card, Button, Spin, Space } from "antd";
+import { Card, Button, Spin, Space, notification } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 
 const { Meta } = Card;
+
+const key = "updatable";
 
 interface Userdates {
   id: number;
@@ -27,6 +29,23 @@ export default function ShowUserDetails() {
   const [load, setLoad] = useState(false);
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = () => {
+    api.open({
+      key,
+      message: "user",
+      description: "deleted.",
+    });
+  };
+
+  const openNotificationError = () => {
+    api.open({
+      key,
+      message: "user",
+      description: "deleted.",
+    });
+  };
 
   useEffect(() => {
     const request = async function () {
@@ -48,9 +67,7 @@ export default function ShowUserDetails() {
           gender: data.gender,
           status: data.status,
         });
-        //alert(data.id)
       } catch (error) {
-        //alert("Request error ,please wait and try again")
       } finally {
         setLoad(false);
       }
@@ -70,30 +87,34 @@ export default function ShowUserDetails() {
       });
 
       const data = await response.json();
-      alert("Users deleted");
       naviagate("/");
+      openNotification();
     } catch (error) {
-      alert("Request error ,please try again");
+      openNotificationError();
     }
   };
 
   return (
     <>
       <MenuItem />
+      {contextHolder}
       {load && (
         <Space size="middle">
           <Spin size="large" />
         </Space>
       )}
-      <Card style={{ width: 300 }}>
-        <p>Name: {userdates.name}</p>
-        <p>Email: {userdates.email}</p>
-        <p>Gender: {userdates.gender}</p>
-        <p>Status: {userdates.status}</p>
 
-        <Button onClick={() => handleDelete(userdates.id)}>Delete</Button>
-        <Link to={`/edit/user/${userdates.id}`}>Edit</Link>
-      </Card>
+      {!load && (
+        <Card style={{ width: 300 }}>
+          <p>Name: {userdates.name}</p>
+          <p>Email: {userdates.email}</p>
+          <p>Gender: {userdates.gender}</p>
+          <p>Status: {userdates.status}</p>
+
+          <Button onClick={() => handleDelete(userdates.id)}>Delete</Button>
+          <Link to={`/edit/user/${userdates.id}`}>Edit</Link>
+        </Card>
+      )}
     </>
   );
 }
