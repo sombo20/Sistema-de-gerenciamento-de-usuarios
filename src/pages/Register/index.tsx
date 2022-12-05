@@ -152,7 +152,7 @@ const Register = () => {
               ]}
             >
               <Radio.Group onChange={(e) => setStatus(e.target.value)}>
-                <Radio value="activo"> Active </Radio>
+                <Radio value="active"> Active </Radio>
                 <Radio value="inactive"> Inactive </Radio>
               </Radio.Group>
             </Form.Item>
