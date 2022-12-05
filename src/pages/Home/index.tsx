@@ -1,5 +1,5 @@
 import MenuItem from "../../header/Menu";
-import { Layout, Menu, Pagination, List } from "antd";
+import { List } from "antd";
 import React, { useEffect, useState } from "react";
 
 const Home = () => {
@@ -40,6 +40,10 @@ const Home = () => {
             <List.Item.Meta
               title={<a href="https://ant.design">{item.name}</a>}
               description={item.status}
+              pagination={{
+                pageSize: 4,
+                total: userdates,
+              }}
             />
             <div>Content</div>
           </List.Item>
