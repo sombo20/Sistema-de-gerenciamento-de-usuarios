@@ -1,5 +1,5 @@
 import MenuItem from "../../header/Menu";
-import { List } from "antd";
+import { List, Pagination } from "antd";
 import React, { useEffect, useState } from "react";
 
 const Home = () => {
@@ -8,10 +8,10 @@ const Home = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
 
   useEffect(() => {
-    const request = async function () {
+    const request = async function (page) {
       try {
         const response = await fetch(
-          "https://gorest.co.in/public/v2/users?page=1&per_page=20",
+          `https://gorest.co.in/public/v2/users?page=1&per_page=${page}`,
           {
             method: "GET",
             headers: {
@@ -26,7 +26,7 @@ const Home = () => {
       } catch (error) {}
     };
 
-    request();
+    request(4);
   }, []);
 
   return (
@@ -41,7 +41,7 @@ const Home = () => {
               title={<a href="https://ant.design">{item.name}</a>}
               description={item.status}
               pagination={{
-                pageSize: 4,
+                pageSize: 10,
                 total: userdates,
               }}
             />
