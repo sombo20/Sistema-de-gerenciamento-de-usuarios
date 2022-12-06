@@ -1,12 +1,12 @@
 import MenuItem from "../../header/Menu";
 import { useEffect, useState } from "react";
-import { List } from "antd";
+import { List, Space } from "antd";
 
 const Home = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const [userdates, setUserdate] = useState([]);
 
-  const request = async function (page: any) {
+  const paginate = async function (page: any) {
     try {
       const response = await fetch(
         `https://gorest.co.in//public/v2/users?page=1&per_page=${page}`,
@@ -25,7 +25,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    request(20);
+    paginate(100);
   }, []);
 
   return (
@@ -34,15 +34,15 @@ const Home = () => {
       <List
         pagination={{
           pageSize: 5,
-          onChange: (page: any) => {
-            alert(page);
-          },
         }}
         dataSource={userdates}
         renderItem={(item: any) => (
           <List.Item key={item.id}>
             <List.Item.Meta title={item.name} description={item.status} />
-            <div>Content</div>
+            <Space size={10}>
+              <a href={`/edit/user/${item.id}`}>Edit</a>
+              <a href={`/show/user/${item.id}`}>more</a>
+            </Space>
           </List.Item>
         )}
       />
