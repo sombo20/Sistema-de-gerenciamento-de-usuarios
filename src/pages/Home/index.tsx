@@ -1,6 +1,6 @@
 import MenuItem from "../../header/Menu";
 import { useEffect, useState } from "react";
-import { List } from "antd";
+import { List, Space } from "antd";
 
 const Home = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
@@ -39,11 +39,10 @@ const Home = () => {
         renderItem={(item: any) => (
           <List.Item key={item.id}>
             <List.Item.Meta title={item.name} description={item.status} />
-            <div>
+            <Space size={10}>
               <a href={`/edit/user/${item.id}`}>Edit</a>
-
               <a href={`/show/user/${item.id}`}>more</a>
-            </div>
+            </Space>
           </List.Item>
         )}
       />
