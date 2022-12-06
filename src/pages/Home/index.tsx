@@ -1,40 +1,51 @@
 import MenuItem from "../../header/Menu";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { List } from "antd";
 
 const Home = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const [userdates, setUserdate] = useState([]);
 
+  const request = async function (page: any) {
+    try {
+      const response = await fetch(
+        `https://gorest.co.in//public/v2/users?page=1&per_page=${page}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const data = await response.json();
+      setUserdate(data);
+    } catch (error) {}
+  };
+
   useEffect(() => {
-    const request = async function () {
-      try {
-        const response = await fetch(
-          "https://gorest.co.in//public/v2/users?page=1&per_page=5",
-          {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        const data = await response.json();
-        setUserdate(data);
-      } catch (error) {}
-    };
-
-    request();
+    request(20);
   }, []);
 
   return (
     <>
       <MenuItem />
-      {userdates.map((item: any) => {
-        {
-          item.id;
-        }
-      })}
+      <List
+        pagination={{
+          pageSize: 5,
+          onChange: (page: any) => {
+            alert(page);
+          },
+        }}
+        dataSource={userdates}
+        renderItem={(item: any) => (
+          <List.Item key={item.id}>
+            <List.Item.Meta title={item.name} description={item.status} />
+            <div>Content</div>
+          </List.Item>
+        )}
+      />
     </>
   );
 };
