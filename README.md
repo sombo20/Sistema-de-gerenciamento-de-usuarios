@@ -1,3 +1,3 @@
 # Sistema-de-gerenciamento-de-usuarios
 
-usando reatct js and typescript
+usando reactjs and typescript
