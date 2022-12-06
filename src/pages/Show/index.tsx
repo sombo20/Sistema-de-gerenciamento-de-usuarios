@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MenuItem from "../../header/Menu";
-import { Card, Button, Spin, Space, notification } from "antd";
+import { Card, Button, Spin, Space } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-
-const { Meta } = Card;
-
-const key = "updatable";
 
 interface Userdates {
   id: number;
@@ -29,23 +25,6 @@ export default function ShowUserDetails() {
   const [load, setLoad] = useState(false);
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  const [api, contextHolder] = notification.useNotification();
-
-  const openNotification = () => {
-    api.open({
-      key,
-      message: "user",
-      description: "deleted.",
-    });
-  };
-
-  const openNotificationError = () => {
-    api.open({
-      key,
-      message: "user",
-      description: "deleted.",
-    });
-  };
 
   useEffect(() => {
     const request = async function () {
@@ -88,16 +67,15 @@ export default function ShowUserDetails() {
 
       const data = await response.json();
       naviagate("/");
-      openNotification();
     } catch (error) {
-      openNotificationError();
+      naviagate("/");
     }
   };
 
   return (
     <>
       <MenuItem />
-      {contextHolder}
+
       {load && (
         <Space size="middle">
           <Spin size="large" />
@@ -112,7 +90,9 @@ export default function ShowUserDetails() {
           <p>Status: {userdates.status}</p>
 
           <Button onClick={() => handleDelete(userdates.id)}>Delete</Button>
-          <Link to={`/edit/user/${userdates.id}`}>Edit</Link>
+          <Button type="link">
+            <Link to={`/edit/user/${userdates.id}`}>Edit</Link>
+          </Button>
         </Card>
       )}
     </>
