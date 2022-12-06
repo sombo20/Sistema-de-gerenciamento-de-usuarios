@@ -1,14 +1,15 @@
 import MenuItem from "../../header/Menu";
-import { List, Space } from "antd";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { List } from "antd";
 
 const Home = () => {
-  const [userdates, setUserdate] = useState();
   const token = import.meta.env.VITE_APP_TOKEN;
+  const [userdates, setUserdate] = useState([]);
+
   const request = async function (page: any) {
     try {
       const response = await fetch(
-        `https://gorest.co.in/public/v2/users?page=1&per_page=${page}`,
+        `https://gorest.co.in//public/v2/users?page=1&per_page=${page}`,
         {
           method: "GET",
           headers: {
@@ -19,46 +20,29 @@ const Home = () => {
       );
 
       const data = await response.json();
+      setUserdate(data);
     } catch (error) {}
   };
 
   useEffect(() => {
-    request(2);
+    request(20);
   }, []);
-
-  const data = Array.from({ length: 4 }).map((_, i) => ({
-    href: "https://ant.design",
-    title: `ant design part ${i}`,
-    description:
-      "Ant Design, a design language for background applications, is refined by Ant UED Team.",
-    content:
-      "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
-  }));
 
   return (
     <>
       <MenuItem />
       <List
-        itemLayout="vertical"
-        size="large"
         pagination={{
-          onChange: (page) => {
-            console.log(page);
+          pageSize: 5,
+          onChange: (page: any) => {
+            alert(page);
           },
-          pageSize: 2,
         }}
-        dataSource={data}
-        footer={
-          <div>
-            <b>ant design</b> footer part
-          </div>
-        }
-        renderItem={(item) => (
-          <List.Item key={item.title}>
-            <List.Item.Meta
-              title={<a href={item.href}>{item.title}</a>}
-              description={item.description}
-            />
+        dataSource={userdates}
+        renderItem={(item: any) => (
+          <List.Item key={item.id}>
+            <List.Item.Meta title={item.name} description={item.status} />
+            <div>Content</div>
           </List.Item>
         )}
       />
