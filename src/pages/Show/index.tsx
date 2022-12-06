@@ -46,6 +46,11 @@ export default function ShowUserDetails() {
           gender: data.gender,
           status: data.status,
         });
+
+        const message = data.message;
+        if (message.indexOf("Resource not found") != -1) {
+          naviagate("/");
+        }
       } catch (error) {
       } finally {
         setLoad(false);
