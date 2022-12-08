@@ -9,7 +9,7 @@ const Home = () => {
   const paginate = async function (page: any) {
     try {
       const response = await fetch(
-        `https://gorest.co.in//public/v2/users?page=1&per_page=${page}`,
+        `https://gorest.co.in//public/v2/users?page=${page}&per_page=50`,
         {
           method: "GET",
           headers: {
@@ -25,7 +25,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    paginate(100);
+    paginate(1);
   }, []);
 
   return (
@@ -33,7 +33,11 @@ const Home = () => {
       <MenuItem />
       <List
         pagination={{
-          pageSize: 5,
+          pageSize:5,
+          
+          onChange:(page)=>{
+            paginate(page)
+          }
         }}
         dataSource={userdates}
         renderItem={(item: any) => (
