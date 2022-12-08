@@ -1,12 +1,15 @@
 import MenuItem from "../../header/Menu";
-import { useEffect, useInsertionEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { List, Space } from "antd";
 import {Link} from 'react-router-dom'
 
 const Home = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const [userdates, setUserdate] = useState([]);
-
+ const [Pages,setTotalPages] = useState<any>(null)
+ let  page:string = Pages
+ let Total  = +page;
+ 
 
   const paginate = async function (page: any) {
     try {
@@ -23,20 +26,24 @@ const Home = () => {
 
       const data = await response.json();
       setUserdate(data);
+      setTotalPages(response.headers.get("X-Pagination-Pages"))
+      
+      
+      
     } catch (error) {}
   };
 
   useEffect(()=>{
     paginate(1);
-  },[]])
+  },[])
 
   return (
     <>
       <MenuItem />
       <List
         pagination={{
-          pageSize:10,
-          total:35,
+          pageSize:5,
+          total:Total,
           onChange:(page)=>{
             paginate(page)
           }
