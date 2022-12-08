@@ -6,11 +6,15 @@ import {Link} from 'react-router-dom'
 const Home = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const [userdates, setUserdate] = useState([]);
+ const [Pages,setTotalPages] = useState<any>(null)
+ let  page:string = Pages
+ let Total  = +page;
+ 
 
   const paginate = async function (page: any) {
     try {
       const response = await fetch(
-        `https://gorest.co.in//public/v2/users?page=${page}&per_page=20`,
+        `https://gorest.co.in//public/v2/users?page=${page}&per_page=5`,
         {
           method: "GET",
           headers: {
@@ -22,12 +26,16 @@ const Home = () => {
 
       const data = await response.json();
       setUserdate(data);
+      setTotalPages(response.headers.get("X-Pagination-Pages"))
+      
+      
+      
     } catch (error) {}
   };
 
-  useEffect(() => {
+  useEffect(()=>{
     paginate(1);
-  }, []);
+  },[])
 
   return (
     <>
@@ -35,7 +43,7 @@ const Home = () => {
       <List
         pagination={{
           pageSize:5,
-          
+          total:Total,
           onChange:(page)=>{
             paginate(page)
           }
