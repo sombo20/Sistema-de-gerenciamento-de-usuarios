@@ -11,7 +11,7 @@ const Home = () => {
   const paginate = async function (page: any) {
     try {
       const response = await fetch(
-        `https://gorest.co.in//public/v2/users?page=${page}&per_page=20`,
+        `https://gorest.co.in//public/v2/users?page=${page}&per_page=5`,
         {
           method: "GET",
           headers: {
@@ -35,8 +35,8 @@ const Home = () => {
       <MenuItem />
       <List
         pagination={{
-          pageSize:5,
-          
+          pageSize:10,
+          total:35,
           onChange:(page)=>{
             paginate(page)
           }
