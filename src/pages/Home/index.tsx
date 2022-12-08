@@ -1,5 +1,5 @@
 import MenuItem from "../../header/Menu";
-import { useEffect, useState } from "react";
+import { useEffect, useInsertionEffect, useState } from "react";
 import { List, Space } from "antd";
 import {Link} from 'react-router-dom'
 
@@ -26,9 +26,9 @@ const Home = () => {
     } catch (error) {}
   };
 
-  useEffect(() => {
+  useEffect(()=>{
     paginate(1);
-  }, []);
+  },[]])
 
   return (
     <>
