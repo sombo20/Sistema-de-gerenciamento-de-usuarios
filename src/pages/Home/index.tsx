@@ -9,7 +9,7 @@ const Home = () => {
   const paginate = async function (page: any) {
     try {
       const response = await fetch(
-        `https://gorest.co.in//public/v2/users?page=${page}&per_page=50`,
+        `https://gorest.co.in//public/v2/users?page=${page}&per_page=20`,
         {
           method: "GET",
           headers: {
