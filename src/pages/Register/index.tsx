@@ -34,7 +34,7 @@ const Register = () => {
     });
   };
 
-  function emailValidation() {
+ /* function emailValidation() {
     const regex =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     if (regex.test(email) === false) {
@@ -73,11 +73,12 @@ const Register = () => {
 
   const onReset = () => {
     form.resetFields();
-  };
+  };*/
 
   const onFinish = () => {
-    emailValidation() ? sendDates() : openNotificationMailer();
-  };
+    //emailValidation() ? sendDates() : openNotificationMailer();
+    alert()
+};
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
