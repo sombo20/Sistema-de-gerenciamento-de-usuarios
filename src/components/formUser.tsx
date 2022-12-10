@@ -2,17 +2,10 @@ import { Button, notification, Checkbox, Form, Input, Radio } from "antd";
 import { Col, Row } from "antd";
 import { Typography } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
-import { useState } from "react";
 
-const Register = () => {
+const formUser = () => {
   const [form] = Form.useForm();
-  const [username, setUsername] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [gender, setGender] = useState<string>("");
-  const [status, setStatus] = useState<string>("");
-  const token = import.meta.env.VITE_APP_TOKEN;
-  const url = import.meta.env.VITE_APP_URL;
-
+ 
   return (
     <>
       <Row>
@@ -34,8 +27,8 @@ const Register = () => {
               ]}
             >
               <Input
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+       
+                onChange={Value}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Username"
               />
@@ -46,8 +39,8 @@ const Register = () => {
               rules={[{ required: true, message: "Please input your email!" }]}
             >
               <Input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                
+                onChange={Value}
                 prefix={<MailOutlined className="site-form-item-icon" />}
                 placeholder="Email"
               />
@@ -60,7 +53,7 @@ const Register = () => {
                 { required: true, message: "Please choose your gender!" },
               ]}
             >
-              <Radio.Group onChange={(e) => setGender(e.target.value)}>
+              <Radio.Group onChange={Value}>
                 <Radio value="male"> Male </Radio>
                 <Radio value="female"> Female </Radio>
               </Radio.Group>
@@ -73,7 +66,7 @@ const Register = () => {
                 { required: true, message: "Please choose your status!" },
               ]}
             >
-              <Radio.Group onChange={(e) => setStatus(e.target.value)}>
+              <Radio.Group onChange={Value}>
                 <Radio value="active"> Active </Radio>
                 <Radio value="inactive"> Inactive </Radio>
               </Radio.Group>
@@ -91,4 +84,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default formUser;
