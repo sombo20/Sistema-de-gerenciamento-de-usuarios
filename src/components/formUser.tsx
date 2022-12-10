@@ -1,11 +1,10 @@
-import { Button, notification, Checkbox, Form, Input, Radio } from "antd";
+import { Button, Checkbox, Form, Input, Radio } from "antd";
 import { Col, Row } from "antd";
 import { Typography } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 
-const formUser = ({onFinish,onFinishFailed,valueChange}) => {
-  const [form] = Form.useForm();
- 
+const formUser = ({form}) => {
+  
   return (
     <>
       <Row>
