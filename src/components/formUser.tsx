@@ -3,7 +3,7 @@ import { Col, Row } from "antd";
 import { Typography } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 
-const formUser = ({onFinish,onFinishFailed}) => {
+const formUser = ({onFinish,onFinishFailed,valueChange}) => {
   const [form] = Form.useForm();
  
   return (
@@ -28,7 +28,7 @@ const formUser = ({onFinish,onFinishFailed}) => {
             >
               <Input
        
-                onChange={Value}
+                onChange={valueChange}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Username"
               />
@@ -40,7 +40,7 @@ const formUser = ({onFinish,onFinishFailed}) => {
             >
               <Input
                 
-                onChange={Value}
+                onChange={valueChange}
                 prefix={<MailOutlined className="site-form-item-icon" />}
                 placeholder="Email"
               />
@@ -53,7 +53,7 @@ const formUser = ({onFinish,onFinishFailed}) => {
                 { required: true, message: "Please choose your gender!" },
               ]}
             >
-              <Radio.Group onChange={Value}>
+              <Radio.Group onChange={valueChange}>
                 <Radio value="male"> Male </Radio>
                 <Radio value="female"> Female </Radio>
               </Radio.Group>
@@ -66,7 +66,7 @@ const formUser = ({onFinish,onFinishFailed}) => {
                 { required: true, message: "Please choose your status!" },
               ]}
             >
-              <Radio.Group onChange={Value}>
+              <Radio.Group onChange={valueChange}>
                 <Radio value="active"> Active </Radio>
                 <Radio value="inactive"> Inactive </Radio>
               </Radio.Group>
