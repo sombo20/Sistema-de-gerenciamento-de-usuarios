@@ -3,7 +3,7 @@ import { Col, Row } from "antd";
 import { Typography } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 
-const formUser = () => {
+const formUser = ({onFinish,onFinishFailed}) => {
   const [form] = Form.useForm();
  
   return (
