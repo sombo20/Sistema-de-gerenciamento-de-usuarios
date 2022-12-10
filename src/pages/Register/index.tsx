@@ -1,20 +1,15 @@
 import MenuItem from "../../header/Menu";
-import { notification } from "antd";
+import { notification,Form } from "antd";
 import { Col, Row } from "antd";
 import { Typography } from "antd";
 import { useState } from "react";
-import formUser from "../../components/formUser";
-import useForm from '../../components/Hook';
+import formUserDates from "../../components/formUser";
 
 const Register = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  const [{
-    values
-  },
-    handleChange,
-    handleSubmit] = useForm();
-
+  const [form] = Form.useForm();
+ 
 
   const [api, contextHolder] = notification.useNotification();
 
@@ -95,9 +90,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <formUser onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      valueChange={handleChange}
+      <formUserDates form={form}
     </>
   );
 };
