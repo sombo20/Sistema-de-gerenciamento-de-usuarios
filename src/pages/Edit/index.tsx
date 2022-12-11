@@ -81,9 +81,6 @@ const EditUser = () => {
   
   const { Title } = Typography;
 
-  useEffect(() => {
-    request();
-  }, []);
 
   return (
     <>
