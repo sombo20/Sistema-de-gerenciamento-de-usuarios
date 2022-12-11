@@ -11,9 +11,9 @@ const EditUser = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
   const formState;
-  const openNotification = (message:string) => {
+  const openNotification = (title:string,message:string) => {
     api.open({
-      message: "Edition",
+      message: title,
       description: message,
       duration: 0,
     });
