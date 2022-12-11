@@ -86,7 +86,8 @@ export default function ShowUserDetails() {
       openNotification()
       request()
     } catch (error) {
-      
+      openNotification()
+      request()
     }
   };
 
