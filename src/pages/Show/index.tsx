@@ -87,8 +87,8 @@ const request = async function () {
       const data = await response.json();
       alert()
     } catch (error) {
-      openNotification()
       naviagate("/");
+      openNotification()
     }
   };
 
