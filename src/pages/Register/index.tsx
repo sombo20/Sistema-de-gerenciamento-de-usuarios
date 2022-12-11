@@ -39,7 +39,7 @@ const Register = () => {
   }
 
 
-  async function sendDates() {
+  async function sendDates(name,email,gender,status):string{
     try {
       const dates = JSON.stringify({
         name: `${username}`,
@@ -72,7 +72,7 @@ const Register = () => {
   };
 
 
-  function Hello(name,email,gender,status):string{
+ async function Hello(name,email,gender,status):string{
     alert(name)
     alert(email)
     alert(gender)
