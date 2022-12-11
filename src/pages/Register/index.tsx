@@ -72,7 +72,7 @@ const Register = () => {
   };
 
 
- const hello = ()=>{
+  function Hello(){
     alert()
   }
 
@@ -90,7 +90,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser event={hello}/>
+      <FormUser chama={hello()}/>
     </>
   );
 };
