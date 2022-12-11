@@ -72,7 +72,7 @@ const Register = () => {
   };
 
 
-  function Hello(name,email,gender,status){
+  function Hello(name,email,gender,status):string{
     alert(name)
     alert(email)
     alert(gender)
