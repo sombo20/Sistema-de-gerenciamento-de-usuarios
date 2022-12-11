@@ -3,7 +3,7 @@ import { Col, Row } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
-const FormUser = ({ola}) => {
+const FormUser = ({ola}:any) => {
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [gender, setGender] = useState<string>("");
