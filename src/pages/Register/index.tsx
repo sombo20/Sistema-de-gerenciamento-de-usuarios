@@ -58,10 +58,10 @@ const Register = () => {
       });
 
       const data = await response.json();
-      if (typeof data == "object") {
+      
         openNotification();
         onReset();
-      }
+      
     } catch (error) {
       //alert(error)
     }
@@ -70,16 +70,7 @@ const Register = () => {
   const onReset = () => {
     form.resetFields();
   };
-
-
- async function Hello(name,email,gender,status):string{
-    alert(name)
-    alert(email)
-    alert(gender)
-    alert(status)
-  }
-
-  
+ 
   const { Title } = Typography;
 
    
@@ -93,7 +84,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser UserFunction={Hello}/>
+      <FormUser UserFunction={sendDates}/>
     </>
   );
 };
