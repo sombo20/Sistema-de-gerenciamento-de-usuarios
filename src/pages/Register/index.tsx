@@ -18,7 +18,7 @@ const Register = () => {
     api.open({
       message: "Registed",
       description: message,
-      duration: 5,
+      duration: 0,
     });
   };
 
@@ -26,7 +26,7 @@ const Register = () => {
     api.open({
       message: "Email ",
       description: "Invalid email",
-      duration: 1,
+      duration: 10,
     });
   };
 
