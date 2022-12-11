@@ -74,9 +74,7 @@ const Register = () => {
   
   const { Title } = Typography;
 
-   const ola = () =>{
-     alert()
-  }
+   
 
   return (
     <>
@@ -87,7 +85,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser ola={ola}/>
+      <FormUser ola={5}/>
     </>
   );
 };
