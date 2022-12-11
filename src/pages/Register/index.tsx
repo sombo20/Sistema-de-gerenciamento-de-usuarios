@@ -22,14 +22,6 @@ const Register = () => {
     });
   };
 
-  const openNotificationMailer = () => {
-    api.open({
-      message: "Email ",
-      description: "Invalid email",
-      duration: 10,
-    });
-  };
-
 
   async function sendDates(userName,userEmail,userGender,userStatus):string{
     
@@ -55,7 +47,8 @@ const Register = () => {
       if(message.indexOf("has already been taken") != -1){
         openNotification(message)
      }else{
-      alert(data.name)
+      alert(data[0].name)
+      openNotification("null")
     }
 
     
