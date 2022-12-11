@@ -18,12 +18,12 @@ function FormUser({UserFunction,UserDates}):USER{
   const url = import.meta.env.VITE_APP_URL;
   const [form] = Form.useForm()
  
-
+ UserDates(form)
 
   const onFinish = () => {
        UserFunction(username,email,gender,status,form);
-       UserDates(form)
-};
+   
+   };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
