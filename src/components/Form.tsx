@@ -3,11 +3,11 @@ import { Col, Row } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
-interface RET{
-  chama:()=>void,
+interface USER{
+  registerUser:()=>void,
 }
 
-function FormUser({chama}):RET{
+function FormUser({registerUser}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -20,7 +20,7 @@ function FormUser({chama}):RET{
 
 
   const onFinish = () => {
-    chama()
+    registerUser()
 };
 
   const onFinishFailed = (errorInfo: any) => {
