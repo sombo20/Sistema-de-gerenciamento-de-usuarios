@@ -71,6 +71,11 @@ const Register = () => {
     form.resetFields();
   };
 
+
+ const hello = ()=>{
+    alert()
+  }
+
   
   const { Title } = Typography;
 
@@ -85,7 +90,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser texto={"112"}/>
+      <FormUser event={hello}/>
     </>
   );
 };
