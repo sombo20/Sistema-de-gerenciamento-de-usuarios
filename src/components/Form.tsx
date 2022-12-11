@@ -4,7 +4,8 @@ import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
 
-const FormUser = ({res}:any) => {
+function FormUser (){
+
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [gender, setGender] = useState<string>("");
@@ -16,7 +17,7 @@ const FormUser = ({res}:any) => {
 
 
   const onFinish = () => {
-    alert(res)
+    alert()
 };
 
   const onFinishFailed = (errorInfo: any) => {
