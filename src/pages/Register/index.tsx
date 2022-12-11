@@ -8,7 +8,7 @@ import FormUser from "../../components/Form";
 const Register = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  /*const [form] = Form.useForm();
+  const [form] = Form.useForm();
  
 
   const [api, contextHolder] = notification.useNotification();
@@ -69,7 +69,7 @@ const Register = () => {
 
   const onReset = () => {
     form.resetFields();
-  };*/
+  };
 
   
   const { Title } = Typography;
@@ -85,7 +85,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser ola={5}/>
+      <FormUser/>
     </>
   );
 };
