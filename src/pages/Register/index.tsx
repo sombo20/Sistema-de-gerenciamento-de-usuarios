@@ -74,7 +74,7 @@ const Register = () => {
   
   const { Title } = Typography;
 
-  function teste(){
+   const ola = () =>{
      alert()
   }
 
@@ -87,7 +87,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser ola={teste}/>
+      <FormUser ola={ola}/>
     </>
   );
 };
