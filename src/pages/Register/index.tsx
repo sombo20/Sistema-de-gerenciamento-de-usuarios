@@ -34,10 +34,10 @@ const Register = () => {
   async function sendDates(name,email,gender,status):string{
     try {
       const dates = JSON.stringify({
-        name: `${username}`,
-        email: `${email}`,
-        gender: `${gender}`,
-        status: `${status}`,
+        name:  name,
+        email: email,
+        gender: gender,
+        status: status,
       });
 
       const response = await fetch(`${url}`, {
@@ -51,7 +51,7 @@ const Register = () => {
 
       const data = await response.json();
       alert(data)
-        //openNotification();
+        openNotification();
        // onReset();
       
     } catch (error) {
