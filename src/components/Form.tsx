@@ -4,10 +4,10 @@ import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
 interface USER{
-  registerUser:()=>void,
+  UserFunction:()=>void,
 }
 
-function FormUser({registerUser}):USER{
+function FormUser({UserFunction}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -20,7 +20,7 @@ function FormUser({registerUser}):USER{
 
 
   const onFinish = () => {
-    registerUser()
+       UserFunction(username);
 };
 
   const onFinishFailed = (errorInfo: any) => {
