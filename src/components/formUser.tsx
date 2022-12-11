@@ -1,10 +1,19 @@
 import { Button, Checkbox, Form, Input, Radio } from "antd";
 import { Col, Row } from "antd";
-import { Typography } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 
-const formUser = ({form}) => {
+const formUserDates = ({form}) => {
   
+const onFinish = () => {
+    //emailValidation() ? sendDates() : openNotificationMailer();
+    alert()
+};
+
+  const onFinishFailed = (errorInfo: any) => {
+    console.log("Failed:", errorInfo);
+  };
+
+
   return (
     <>
       <Row>
@@ -27,7 +36,7 @@ const formUser = ({form}) => {
             >
               <Input
        
-                onChange={valueChange}
+               
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Username"
               />
@@ -39,7 +48,7 @@ const formUser = ({form}) => {
             >
               <Input
                 
-                onChange={valueChange}
+                
                 prefix={<MailOutlined className="site-form-item-icon" />}
                 placeholder="Email"
               />
@@ -52,7 +61,7 @@ const formUser = ({form}) => {
                 { required: true, message: "Please choose your gender!" },
               ]}
             >
-              <Radio.Group onChange={valueChange}>
+              <Radio.Group >
                 <Radio value="male"> Male </Radio>
                 <Radio value="female"> Female </Radio>
               </Radio.Group>
@@ -65,7 +74,7 @@ const formUser = ({form}) => {
                 { required: true, message: "Please choose your status!" },
               ]}
             >
-              <Radio.Group onChange={valueChange}>
+              <Radio.Group >
                 <Radio value="active"> Active </Radio>
                 <Radio value="inactive"> Inactive </Radio>
               </Radio.Group>
@@ -83,4 +92,4 @@ const formUser = ({form}) => {
   );
 };
 
-export default formUser;
+export default formUserDates;
