@@ -22,7 +22,7 @@ const EditUser = () => {
   async function updateUser(userName:string,userEmail:string,userGender:string,userStatus:string,form){
     
   try {
-      formState = form
+      
       const dates = JSON.stringify({
         name:  userName,
         email: userEmail,
@@ -55,12 +55,8 @@ const EditUser = () => {
     }
   }
 
-  
-  const { Title } = Typography;
-
-  useEffect(() => {
-    alert(formState)
-    const request = async function () {
+ async function request(form) {
+      alert(form)
       try {
         const response = await fetch(`${url}${id}`, {
           method: "GET",
@@ -71,17 +67,21 @@ const EditUser = () => {
         });
 
         const data = await response.json();
-        formState.setFieldsValue({
+        /*formState.setFieldsValue({
           username: data.name,
           email: data.email,
           status: data.status,
           gender: data.gender,
-        });
+        });*/
       } catch (error) {
-        openNotification("Please try again")
+        openNotification("Error","Please try again")
       }
     };
 
+  
+  const { Title } = Typography;
+
+  useEffect(() => {
     request();
   }, []);
 
@@ -94,7 +94,7 @@ const EditUser = () => {
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser}/>
+     <FormUser UserFunction={updateUser} UserDates={request}/>
     </>
   );
 };
