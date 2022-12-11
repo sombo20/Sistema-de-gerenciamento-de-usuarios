@@ -3,8 +3,11 @@ import { Col, Row } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
+interface RET{
+  texto:string,
+}
 
-function FormUser (){
+function FormUser({texto}):RET{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -17,7 +20,7 @@ function FormUser (){
 
 
   const onFinish = () => {
-    alert()
+    alert(`${texto}`)
 };
 
   const onFinishFailed = (errorInfo: any) => {
