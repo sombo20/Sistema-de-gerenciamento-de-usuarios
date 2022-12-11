@@ -51,7 +51,7 @@ const Register = () => {
       });
 
       const data = await response.json();
-      const message = data.message
+      const message = data[0].message
       alert(message)
        
       
