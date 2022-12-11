@@ -56,7 +56,7 @@ const EditUser = () => {
   }
 
  async function request(form) {
-      alert(form)
+     
       try {
         const response = await fetch(`${url}${id}`, {
           method: "GET",
@@ -67,12 +67,12 @@ const EditUser = () => {
         });
 
         const data = await response.json();
-        /*formState.setFieldsValue({
+        formState.setFieldsValue({
           username: data.name,
           email: data.email,
           status: data.status,
           gender: data.gender,
-        });*/
+        });
       } catch (error) {
         openNotification("Error","Please try again")
       }
@@ -81,6 +81,9 @@ const EditUser = () => {
   
   const { Title } = Typography;
 
+  useEffect (()=>{
+    request({})
+},[])
 
   return (
     <>
@@ -91,7 +94,7 @@ const EditUser = () => {
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} UserDates={request}/>
+     <FormUser UserFunction={updateUser} />
     </>
   );
 };
