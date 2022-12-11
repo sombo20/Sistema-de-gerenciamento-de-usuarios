@@ -72,8 +72,8 @@ const Register = () => {
   };
 
 
-  function Hello(){
-    alert(5)
+  function Hello(nome){
+    alert(nome)
   }
 
   
