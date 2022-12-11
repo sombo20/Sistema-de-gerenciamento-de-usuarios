@@ -5,9 +5,10 @@ import { useState } from "react";
 
 interface USER{
   UserFunction:()=>void,
+  UserDates:()=>void,
 }
 
-function FormUser({UserFunction}):USER{
+function FormUser({UserFunction,UserDates}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -21,6 +22,7 @@ function FormUser({UserFunction}):USER{
 
   const onFinish = () => {
        UserFunction(username,email,gender,status,form);
+       UserDates(form)
 };
 
   const onFinishFailed = (errorInfo: any) => {
