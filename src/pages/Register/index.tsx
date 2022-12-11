@@ -31,13 +31,14 @@ const Register = () => {
   };
 
 
-  async function sendDates(name,email,gender,status):string{
-    try {
+  async function sendDates(userName,userEmail,userGender,userStatus):string{
+    alert(userName)
+  try {
       const dates = JSON.stringify({
-        name:  name,
-        email: email,
-        gender: gender,
-        status: status,
+        name:  userName,
+        email: userEmail,
+        gender: userGender,
+        status: userStatus,
       });
 
       const response = await fetch(`${url}`, {
