@@ -55,7 +55,7 @@ const Register = () => {
        // onReset();
       
     } catch (error) {
-      //alert(error)
+      alert(error)
     }
   }
 
