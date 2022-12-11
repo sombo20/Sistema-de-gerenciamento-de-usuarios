@@ -14,10 +14,10 @@ const Register = () => {
 
   const [api, contextHolder] = notification.useNotification();
 
-  const openNotification = () => {
+  const openNotification = (message:string) => {
     api.open({
       message: "Registed",
-      description: "Success,User registed",
+      description: message,
       duration: 0,
     });
   };
@@ -51,8 +51,15 @@ const Register = () => {
       });
 
       const data = await response.json();
-      alert(data)
-        openNotification();
+      const message = data.message
+       if(message.indexOf("has already been taken") != -1){
+           openNotification(message);
+        }else if(typeof data = "object"){
+         openNotification("User Registed")
+       }else{
+        openNotification("Error Registed")
+       }
+    
        // onReset();
       
     } catch (error) {
