@@ -1,7 +1,5 @@
 import MenuItem from "../../header/Menu";
-import { notification} from "antd";
-import { Col, Row } from "antd";
-import { Typography } from "antd";
+import { notification, Col, Row ,Typography } from "antd";
 import { useEffect, useState } from "react";
 import FormUser from "../../components/Form";
 
