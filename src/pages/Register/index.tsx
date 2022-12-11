@@ -24,7 +24,7 @@ const Register = () => {
 
 
   async function sendDates(userName:string,userEmail:string,userGender:string,userStatus:string,form){
-    alert(form)
+    
   try {
       const dates = JSON.stringify({
         name:  userName,
@@ -46,6 +46,7 @@ const Register = () => {
      
       if(data.name){
          openNotification("User Registed")
+         form.resetFields()
       }else if(data[0].message.indexOf("has already been taken") != -1){
         openNotification(data[0].message)
      }else{
@@ -61,9 +62,6 @@ const Register = () => {
     }
   }
 
-  /*const onReset = () => {
-    form.resetFields();
-  };*/
  
   const { Title } = Typography;
 
