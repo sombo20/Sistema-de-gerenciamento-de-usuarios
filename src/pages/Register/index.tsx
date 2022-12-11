@@ -44,8 +44,9 @@ const Register = () => {
 
       const data = await response.json();
       const message = data[0].message
-      alert(data.name)
-      if(message.indexOf("has already been taken") != -1){
+      if(data.name == "undefined"){
+         alert("Inserido")
+      }else if(message.indexOf("has already been taken") != -1){
         openNotification(message)
      }else{
       openNotification("null")
