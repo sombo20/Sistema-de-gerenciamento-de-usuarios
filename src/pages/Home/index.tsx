@@ -32,7 +32,9 @@ const Home = () => {
       
       
       
-    } catch (error) {}finally{
+    } catch (error) {
+    
+    }finally{
       setLoading (false)
     }
   };
