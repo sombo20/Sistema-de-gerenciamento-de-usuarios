@@ -8,7 +8,8 @@ import FormUser from "../../components/Form";
 const Register = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  
+  const [form] = Form.useForm()
+ 
  
 
   const [api, contextHolder] = notification.useNotification();
