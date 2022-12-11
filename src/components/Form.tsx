@@ -4,10 +4,10 @@ import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
 interface RET{
-  event:()=>void,
+  chama:()=>void,
 }
 
-function FormUser({event}):RET{
+function FormUser({chama}):RET{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -20,7 +20,7 @@ function FormUser({event}):RET{
 
 
   const onFinish = () => {
-    event()
+    chama()
 };
 
   const onFinishFailed = (errorInfo: any) => {
