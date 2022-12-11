@@ -20,7 +20,7 @@ function FormUser({UserFunction}):USER{
 
 
   const onFinish = () => {
-       UserFunction(username,email,gender,status);
+       UserFunction(username,email,gender,status,form);
 };
 
   const onFinishFailed = (errorInfo: any) => {
