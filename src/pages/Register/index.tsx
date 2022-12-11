@@ -1,5 +1,5 @@
 import MenuItem from "../../header/Menu";
-import { notification, Form} from "antd";
+import { notification} from "antd";
 import { Col, Row } from "antd";
 import { Typography } from "antd";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ import FormUser from "../../components/Form";
 const Register = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  const [form] = Form.useForm()
+  
  
  
 
@@ -30,15 +30,6 @@ const Register = () => {
     });
   };
 
-  function emailValidation() {
-    const regex =
-      /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    if (regex.test(email) === false) {
-      return false;
-    }
-    return true;
-  }
-
 
   async function sendDates(name,email,gender,status):string{
     try {
@@ -59,18 +50,18 @@ const Register = () => {
       });
 
       const data = await response.json();
-      
-        openNotification();
-        onReset();
+      alert(data)
+        //openNotification();
+       // onReset();
       
     } catch (error) {
       //alert(error)
     }
   }
 
-  const onReset = () => {
+  /*const onReset = () => {
     form.resetFields();
-  };
+  };*/
  
   const { Title } = Typography;
 
