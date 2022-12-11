@@ -3,7 +3,7 @@ import { notification,Form } from "antd";
 import { Col, Row } from "antd";
 import { Typography } from "antd";
 import { useState } from "react";
-import formUserDates from "../../components/formUser";
+import FormUser from "../../components/formUser";
 
 const Register = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
@@ -90,7 +90,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <formUserDates form={form}/>
+      <FormUser Form={form}/>
     </>
   );
 };

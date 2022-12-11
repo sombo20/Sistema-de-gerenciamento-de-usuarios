@@ -2,7 +2,7 @@ import { Button, Checkbox, Form, Input, Radio } from "antd";
 import { Col, Row } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 
-const formUserDates = ({form}) => {
+const FormUser = ({Form}:any)=> {
   
 const onFinish = () => {
     //emailValidation() ? sendDates() : openNotificationMailer();
@@ -20,7 +20,7 @@ const onFinish = () => {
         <Col span={14} offset={9}>
           <Form
             name="basic"
-            form={form}
+            form={Form}
             labelCol={{ span: 2 }}
             wrapperCol={{ span: 10 }}
             initialValues={{ remember: false }}
@@ -92,4 +92,4 @@ const onFinish = () => {
   );
 };
 
-export default formUserDates;
+export default FormUser;
