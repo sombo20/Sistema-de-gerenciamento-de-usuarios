@@ -28,7 +28,7 @@ const Home = () => {
 
       const data = await response.json();
       setUserdate(data);
-      setTotalPages(response.headers.get("X-Pagination-Pages"))
+      setTotalPages(response.headers.get("X-Pagination-Total"))
       
       
       
