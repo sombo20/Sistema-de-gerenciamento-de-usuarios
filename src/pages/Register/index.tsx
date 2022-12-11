@@ -90,7 +90,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser chama={hello()}/>
+      <FormUser chama={Hello()}/>
     </>
   );
 };
