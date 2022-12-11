@@ -1,6 +1,5 @@
 import MenuItem from "../../header/Menu";
 import { notification, Col, Row ,Typography } from "antd";
-import { useEffect, useState } from "react";
 import FormUser from "../../components/Form";
 
 const Register = () => {
@@ -49,11 +48,7 @@ const Register = () => {
         openNotification(data[0].message)
      }else{
       openNotification("null")
-    }
-
-    
-    
-       
+    }   
       
     } catch (error) {
       alert(error)
