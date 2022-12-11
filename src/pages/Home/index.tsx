@@ -7,7 +7,7 @@ const Home = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const [userdates, setUserdate] = useState([]);
   const [Pages,setTotalPages] = useState<any>(null)
-  const [loading,setLoading] = useState(falar);
+  const [loading,setLoading] = useState(false);
   let  page:string = Pages
   let Total  = +page;
  
