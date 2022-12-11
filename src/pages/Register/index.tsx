@@ -43,8 +43,10 @@ const Register = () => {
       });
 
       const data = await response.json();
-      //const message = data[0].message
-      alert(data.name)
+      const message = data[0].message
+      if(data.name){
+           oopenNotification("User Registed")
+        }
          
       /*else if(message.indexOf("has already been taken") != -1){
         openNotification(message)
