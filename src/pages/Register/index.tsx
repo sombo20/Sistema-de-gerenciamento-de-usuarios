@@ -11,9 +11,9 @@ const Register = () => {
 
   const [api, contextHolder] = notification.useNotification();
 
-  const openNotification = (message:string) => {
+  const openNotification = (title:string,message:string) => {
     api.open({
-      message: "Registed",
+      message: title,
       description: message,
       duration: 0,
     });
@@ -42,10 +42,10 @@ const Register = () => {
       const data = await response.json();
      
       if(data.name){
-         openNotification("User Registed")
+         openNotification("Register","User Registed")
          form.resetFields()
       }else if(data[0].message.indexOf("has already been taken") != -1){
-        openNotification(data[0].message)
+        openNotification(data[0].field,data[0].message)
      }else{
       openNotification("null")
     }   
