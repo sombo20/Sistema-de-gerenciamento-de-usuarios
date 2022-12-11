@@ -47,8 +47,8 @@ const EditUser = () => {
      }else if(dados[0].message.indexOf( "is invalid") != -1){
        openNotification(data[0].field,data[0].message)
      }else{
-      openNotification("null")
-    }   
+       openNotification(data[0].field,data[0].message)
+    }
       
     } catch (error) {
       alert(error);
