@@ -5,10 +5,9 @@ import { useState ,useEffect} from "react";
 
 interface USER{
   UserFunction:()=>void,
-  UserDates:()=>void,
-}
+ }
 
-function FormUser({UserFunction,UserDates}):USER{
+function FormUser({UserFunction}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -17,10 +16,6 @@ function FormUser({UserFunction,UserDates}):USER{
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
   const [form] = Form.useForm()
- 
- useEffect(()=>{
-    UserDates(form)
-  },[])
 
   const onFinish = () => {
        UserFunction(username,email,gender,status,form);
@@ -98,7 +93,7 @@ function FormUser({UserFunction,UserDates}):USER{
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">
-                Update
+                Send
               </Button>
             </Form.Item>
           </Form>
