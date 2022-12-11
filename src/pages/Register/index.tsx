@@ -58,9 +58,6 @@ const Register = () => {
  
   const { Title } = Typography;
 
-   function res(i){
-    }
-
   return (
     <>
       <MenuItem />
@@ -70,7 +67,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser UserFunction={sendDates} UserDates={res}/>
+      <FormUser UserFunction={sendDates} />
     </>
   );
 };
