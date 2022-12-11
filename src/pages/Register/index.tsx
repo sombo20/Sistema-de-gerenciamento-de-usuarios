@@ -23,8 +23,8 @@ const Register = () => {
   };
 
 
-  async function sendDates(userName,userEmail,userGender,userStatus):string{
-    
+  async function sendDates(userName:string,userEmail:string,userGender:string,userStatus:string,form){
+    alert(form)
   try {
       const dates = JSON.stringify({
         name:  userName,
