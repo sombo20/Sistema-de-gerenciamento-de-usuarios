@@ -83,9 +83,10 @@ export default function ShowUserDetails() {
       });
 
       const data = await response.json();
-      openNotification()
-      request()
+      //openNotification()
+      alert()
     } catch (error) {
+     alert()
       openNotification()
       request()
     }
