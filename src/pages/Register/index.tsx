@@ -58,7 +58,8 @@ const Register = () => {
  
   const { Title } = Typography;
 
-   
+   function res(i){
+    }
 
   return (
     <>
@@ -69,7 +70,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser UserFunction={sendDates}/>
+      <FormUser UserFunction={sendDates} UserDates={res}/>
     </>
   );
 };
