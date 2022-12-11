@@ -18,7 +18,7 @@ const Register = () => {
     api.open({
       message: "Registed",
       description: message,
-      duration: 0,
+      duration: 1,
     });
   };
 
@@ -52,7 +52,14 @@ const Register = () => {
 
       const data = await response.json();
       const message = data[0].message
-      alert(message)
+      if(message.indexOf("has already been taken") != -1){
+        openNotification(message)
+     }else{
+      alert(data.name)
+    }
+
+    
+    
        
       
     } catch (error) {
