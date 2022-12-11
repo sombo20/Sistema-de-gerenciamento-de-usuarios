@@ -6,13 +6,15 @@ import {Link} from 'react-router-dom'
 const Home = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const [userdates, setUserdate] = useState([]);
- const [Pages,setTotalPages] = useState<any>(null)
- let  page:string = Pages
- let Total  = +page;
+  const [Pages,setTotalPages] = useState<any>(null)
+  const [loading,setLoading] = useState(falar);
+  let  page:string = Pages
+  let Total  = +page;
  
 
   const paginate = async function (page: any) {
     try {
+      setLoading(true)
       const response = await fetch(
         `https://gorest.co.in//public/v2/users?page=${page}&per_page=5`,
         {
@@ -30,7 +32,9 @@ const Home = () => {
       
       
       
-    } catch (error) {}
+    } catch (error) {}finally{
+      setLoading (false)
+    }
   };
 
   useEffect(()=>{
@@ -41,6 +45,7 @@ const Home = () => {
     <>
       <MenuItem />
       <List
+        loading={loading}
         pagination={{
           pageSize:5,
           total:Total,
