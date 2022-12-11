@@ -3,19 +3,19 @@ import { Col, Row } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState } from "react";
 
-const FormUser = ({Form}:any) => {
+const FormUser = ({ola}) => {
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [gender, setGender] = useState<string>("");
   const [status, setStatus] = useState<string>("");
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  
+  const [form] = Form.useForm()
  
 
 
   const onFinish = () => {
-    alert()
+    ola()
 };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -27,7 +27,7 @@ const FormUser = ({Form}:any) => {
         <Col span={14} offset={9}>
           <Form
             name="basic"
-            form={Form}
+            form={form}
             labelCol={{ span: 2 }}
             wrapperCol={{ span: 10 }}
             initialValues={{ remember: false }}
