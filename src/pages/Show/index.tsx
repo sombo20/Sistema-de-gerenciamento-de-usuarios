@@ -83,10 +83,10 @@ export default function ShowUserDetails() {
       });
 
       const data = await response.json();
-      //openNotification()
-      alert()
+      openNotification()
+      alert(5)
     } catch (error) {
-     alert()
+     alert(6)
       openNotification()
       request()
     }
@@ -95,7 +95,7 @@ export default function ShowUserDetails() {
   return (
     <>
       <MenuItem />
-
+      {contextHolder}
       {load && (
         <Space size="middle">
           <Spin size="large" />
