@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MenuItem from "../../header/Menu";
-import { Card, Button, Spin, Space } from "antd";
+import { Card, Button, Spin, Space ,notification} from "antd";
 import { Link, useNavigate } from "react-router-dom";
 
 interface Userdates {
@@ -21,10 +21,22 @@ export default function ShowUserDetails() {
     gender: "",
     status: "",
   });
+
   const naviagate = useNavigate();
   const [load, setLoad] = useState(false);
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
+
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = () => {
+    api.open({
+      message: "Delete",
+      description: "User Deleted",
+      duration: 0,
+    });
+  };
+
 
   useEffect(() => {
     const request = async function () {
@@ -71,9 +83,10 @@ export default function ShowUserDetails() {
       });
 
       const data = await response.json();
-      naviagate("/");
+      openNotification()
+      request()
     } catch (error) {
-      naviagate("/");
+      
     }
   };
 
