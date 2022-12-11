@@ -5,7 +5,6 @@ import { useState ,useEffect} from "react";
 
 interface USER{
   UserFunction:()=>void,
-  UserDates:()=>void,
  }
 
 function FormUser({UserFunction,userDates}):USER{
@@ -18,13 +17,8 @@ function FormUser({UserFunction,userDates}):USER{
   const url = import.meta.env.VITE_APP_URL;
   const [form] = Form.useForm()
 
-  useEffect(()=>{
-    UserDates(form)
-  },[])
-
   const onFinish = () => {
        UserFunction(username,email,gender,status,form);
-   
    };
 
   const onFinishFailed = (errorInfo: any) => {
