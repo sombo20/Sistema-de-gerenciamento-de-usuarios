@@ -38,10 +38,7 @@ export default function ShowUserDetails() {
   };
 
   
-
-
-  useEffect(() => {
-    const request = async function () {
+const request = async function () {
       try {
         setLoad(true);
         const response = await fetch(`${url}${id}`, {
@@ -71,14 +68,12 @@ export default function ShowUserDetails() {
       }
     };
 
+  useEffect(() => {
     request();
   }, []);
 
 
-  function del(){
-     alert()
-  }
-
+ 
   const handleDelete = async (id: number) => {
     try {
       const response = await fetch(`${url}${id}`, {
@@ -92,7 +87,7 @@ export default function ShowUserDetails() {
       const data = await response.json();
     } catch (error) {
       openNotification()
-      del()
+      request()
     }
   };
 
