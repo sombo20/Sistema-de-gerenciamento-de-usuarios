@@ -32,7 +32,7 @@ const Register = () => {
 
 
   async function sendDates(userName,userEmail,userGender,userStatus):string{
-    alert(userName)
+    
   try {
       const dates = JSON.stringify({
         name:  userName,
@@ -53,13 +53,10 @@ const Register = () => {
       const data = await response.json();
       const message = data.message
        if(message.indexOf("has already been taken") != -1){
-           openNotification(message);
-        }else if(typeof data = "object"){
-         openNotification("User Registed")
-       }else{
-        openNotification("Error Registed")
-       }
-    
+          // openNotification(message);
+alert()
+        }
+
        // onReset();
       
     } catch (error) {
