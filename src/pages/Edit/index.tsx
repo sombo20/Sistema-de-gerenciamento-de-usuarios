@@ -10,7 +10,7 @@ const EditUser = () => {
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  const formState;
+  const formState = null;
   const openNotification = (title:string,message:string) => {
     api.open({
       message: title,
@@ -59,7 +59,7 @@ const EditUser = () => {
   const { Title } = Typography;
 
   useEffect(() => {
-    Alert(formState)
+    alert(formState)
     const request = async function () {
       try {
         const response = await fetch(`${url}${id}`, {
