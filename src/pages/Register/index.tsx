@@ -38,6 +38,7 @@ const Register = () => {
     return true;
   }
 
+
   async function sendDates() {
     try {
       const dates = JSON.stringify({
@@ -70,16 +71,12 @@ const Register = () => {
     form.resetFields();
   };
 
-  const onFinish = () => {
-    //emailValidation() ? sendDates() : openNotificationMailer();
-    alert()
-};
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };*/
-
+  
   const { Title } = Typography;
+
+  function teste(){
+     alert()
+  }
 
   return (
     <>
@@ -90,7 +87,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser Form={form}/>
+      <FormUser ola={teste}/>
     </>
   );
 };
