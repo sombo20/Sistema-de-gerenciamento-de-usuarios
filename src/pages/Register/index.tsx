@@ -26,7 +26,7 @@ const Register = () => {
     api.open({
       message: "Email ",
       description: "Invalid email",
-      duration: 0,
+      duration: 1,
     });
   };
 
@@ -51,7 +51,7 @@ const Register = () => {
       });
 
       const data = await response.json();
-      const message = data.[0].message
+      const message = data.message
       alert(message)
        
       
