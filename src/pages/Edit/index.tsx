@@ -56,8 +56,7 @@ const EditUser = () => {
     }
   }
 
-  useEffect(()=>{
-    const request = async ()=>{
+  async function request(){
       try {
         const response = await fetch(`${url}${id}`, {
           method: "GET",
@@ -78,6 +77,7 @@ const EditUser = () => {
       }
     };
 
+  useEffect(()=>{
      request()
    },[]);
   
