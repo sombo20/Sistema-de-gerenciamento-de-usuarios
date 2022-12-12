@@ -25,7 +25,7 @@ function FormUser({UserFunction,name}):USER{
     console.log("Failed:", errorInfo);
   };
 
-  form.setFieldsValue({username:name});
+  //form.setFieldsValue({username:name});
 
   return (
       <Row>
@@ -47,7 +47,7 @@ function FormUser({UserFunction,name}):USER{
               ]}
             >
               <Input
-                value="Angolaaa"
+                value={name}
                 onChange={(e) => setUsername(e.target.value)}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Username"
