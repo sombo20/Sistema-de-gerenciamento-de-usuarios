@@ -5,9 +5,10 @@ import { useState ,useEffect} from "react";
 
 interface USER{
   UserFunction:()=>void,
+  name:string,
  }
 
-function FormUser({UserFunction}):USER{
+function FormUser({UserFunction,name}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -24,7 +25,7 @@ function FormUser({UserFunction}):USER{
     console.log("Failed:", errorInfo);
   };
 
-  form.setFieldsValue({username:"Domingos"});
+  form.setFieldsValue({username:name});
 
   return (
       <Row>
