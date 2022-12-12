@@ -54,6 +54,32 @@ const EditUser = () => {
       alert(error);
     }
   }
+
+  const request = async () {
+     const { id } = useParams();
+     const token = import.meta.env.VITE_APP_TOKEN;
+     const url = import.meta.env.VITE_APP_URL;
+     
+      try {
+        const response = await fetch(`${url}${id}`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+       const data = await response.json();
+        
+      } catch (error) {
+        //openNotification("Error","Please try again")
+      }
+    };
+   
+
+  useEffect(()=>{
+     request()
+   },[])
   
   const { Title } = Typography;
 
@@ -66,7 +92,7 @@ const EditUser = () => {
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} edit={true}/>
+     <FormUser UserFunction={updateUser} name={"Vicente"} useremail={"angola@gmail.com"} usergender={"male"} userstatus={"active"}/>
     </>
   );
 };
