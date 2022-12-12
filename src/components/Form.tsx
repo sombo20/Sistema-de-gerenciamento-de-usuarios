@@ -36,7 +36,7 @@ function FormUser({UserFunction}):USER{
             wrapperCol={{ span: 10 }}
             initialValues={
             { 
-               username: "Domingos"
+               remember:false
              }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
