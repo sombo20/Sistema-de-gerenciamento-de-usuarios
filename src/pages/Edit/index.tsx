@@ -14,6 +14,7 @@ const EditUser = () => {
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
+  
   const openNotification = (title:string,message:string) => {
     api.open({
       message: title,
@@ -22,14 +23,14 @@ const EditUser = () => {
     });
   };
 
-  async function updateUser(userName:string,userEmail:string,userGender:string,userStatus:string,form){
+  async function updateUser(username:string,useremail:string,usergender:string,userstatus:string,form){
     
   try {  
       const dates = JSON.stringify({
-        name:  userName,
-        email: userEmail,
-        gender: userGender,
-        status: userStatus,
+        name:  username,
+        email: useremail,
+        gender: usergender,
+        status: userstatus,
       });
 
       const response = await fetch(`${url}${id}`, {
@@ -95,7 +96,7 @@ const EditUser = () => {
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={username} userEmail={email} userGender={gender} userStatus={status}/>
+     <FormUser UserFunction={updateUser} name={""} userEmail={""} userGender={""} userStatus={""}/>
     </>
   );
 }; 
