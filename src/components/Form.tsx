@@ -6,10 +6,13 @@ import { useParams } from "react-router-dom";
 
 interface USER{
   userfunction:()=>void,
-  edit:boolean
+  name:string,
+  useremail:string,
+  usergender:string,
+  userstatus:string,
  }
 
-function FormUser({userfunction,edit}):USER{
+function FormUser({userfunction,name,useremail, usergender, userstatus}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -17,7 +20,7 @@ function FormUser({userfunction,edit}):USER{
   const [status, setStatus] = useState<string>("");
   
   const [form] = Form.useForm()
-
+  
   const onFinish = () => {
        UserFunction(username,email,gender,status,form);
    };
@@ -26,39 +29,7 @@ function FormUser({userfunction,edit}):USER{
     console.log("Failed:", errorInfo);
   };
 
-alert(edit)
-
-/*useEffect (()=>{
- const request = async (form) {
-     const { id } = useParams();
-     const token = import.meta.env.VITE_APP_TOKEN;
-     const url = import.meta.env.VITE_APP_URL;
-     
-      try {
-        const response = await fetch(`${url}${id}`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-
-       const data = await response.json();
-        form.setFieldsValue({
-          username: data.name,
-          email: data.email,
-          status: data.status,
-          gender: data.gender,
-        });
-      } catch (error) {
-        //openNotification("Error","Please try again")
-      }
-    };
-   
-  if(edit == 1){
-     request(form)
-   }
-},[])*/
+  setUsername ("Angolaaa")
 
   return (
       <Row>
