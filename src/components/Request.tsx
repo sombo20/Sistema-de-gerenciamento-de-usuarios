@@ -5,8 +5,7 @@ export default async function request(form) {
      const { id } = useParams();
      const token = import.meta.env.VITE_APP_TOKEN;
      const url = import.meta.env.VITE_APP_URL;
-     alert(form)
-     alert(`${id}`)
+     
       try {
         const response = await fetch(`${url}${id}`, {
           method: "GET",
@@ -16,13 +15,13 @@ export default async function request(form) {
           },
         });
 
-       /* const data = await response.json();
-        formState.setFieldsValue({
+       const data = await response.json();
+        form.setFieldsValue({
           username: data.name,
           email: data.email,
           status: data.status,
           gender: data.gender,
-        });*/
+        });
       } catch (error) {
         //openNotification("Error","Please try again")
       }
