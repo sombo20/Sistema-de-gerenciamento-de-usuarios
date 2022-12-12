@@ -1,17 +1,13 @@
 import { Button,Form, Input, Radio } from "antd";
 import { Col, Row } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
-import { useState ,useEffect} from "react";
+import { useState} from "react";
 
 interface USER{
   UserFunction:()=>void,
-  name:string,
-  userEmail:string,
-  userGender:string,
-  userStatus:string,
  }
 
-function FormUser({UserFunction,name, userEmail, userGender, userStatus}):USER{
+function FormUser({UserFunction}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -40,10 +36,10 @@ function FormUser({UserFunction,name, userEmail, userGender, userStatus}):USER{
             wrapperCol={{ span: 10 }}
             initialValues={
             { 
-               username: name,
-               email: userEmail,
-               gender: userGender,
-               status: userStatus
+               username: "Domingos",
+               email:"Vicente",
+               gender: "male",
+               status: "active"
              }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
