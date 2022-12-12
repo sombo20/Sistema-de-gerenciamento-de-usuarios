@@ -2,6 +2,7 @@ import { Button,Form, Input, Radio } from "antd";
 import { Col, Row } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState ,useEffect} from "react";
+import request from './Request'
 
 interface USER{
   UserFunction:()=>void,
@@ -24,6 +25,8 @@ function FormUser({UserFunction,userDates}):USER{
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
+
+  request(form)
 
   return (
       <Row>
