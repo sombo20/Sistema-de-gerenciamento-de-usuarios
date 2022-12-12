@@ -104,9 +104,9 @@ const request = async function () {
         </Space>
       )}
 
-      {foundUser &&(<h1>User Bot found</h1>)}
+      {foundUser &&(<h1>User Not found</h1>)}
 
-      {!load && (
+      {!load && !foundUser && (
         <Card style={{ width: 300 }}>
           <p>Name: {userdates.name}</p>
           <p>Email: {userdates.email}</p>
