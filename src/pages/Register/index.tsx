@@ -61,7 +61,7 @@ const Register = () => {
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser UserFunction={sendDates} name={"Teste"} userEmail={"miguel@domin"} userGender={"male"} userStatus={"active"}/>
+      <FormUser UserFunction={sendDates} name={""} userEmail={""} userGender={""} userStatus={""}/>
     </>
   );
 };
