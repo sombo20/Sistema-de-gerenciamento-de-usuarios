@@ -27,7 +27,10 @@ function FormUser({UserFunction,edit}):USER{
     console.log("Failed:", errorInfo);
   };
 
-   if(edit == 1){ request(form) }
+   if(edit == 1){ 
+      request(form)
+      edit =0;
+   }
     
 
   return (
