@@ -5,7 +5,7 @@ import { useState ,useEffect} from "react";
 
 interface USER{
   UserFunction:()=>void,
-  edit:number
+  edit:number,
  }
 
 function FormUser({UserFunction,edit}):USER{
@@ -26,7 +26,6 @@ function FormUser({UserFunction,edit}):USER{
   };
    
   alert (edit)
-  setUsername ("Angolaaa")
 
   return (
       <Row>
