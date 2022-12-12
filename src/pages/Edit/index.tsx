@@ -52,6 +52,8 @@ const EditUser = () => {
     }
   }
 
+
+/*
   const request = async () {
      const { id } = useParams();
      const token = import.meta.env.VITE_APP_TOKEN;
@@ -76,7 +78,9 @@ const EditUser = () => {
 
   useEffect(()=>{
      request()
-   },[])
+   },[]);
+
+*/
   
   const { Title } = Typography;
 
