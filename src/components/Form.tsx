@@ -8,7 +8,7 @@ interface USER{
   name:string,
  }
 
-
+const [form] = Form.useForm()
 
 function FormUser({UserFunction,name}):USER{
 
@@ -16,8 +16,8 @@ function FormUser({UserFunction,name}):USER{
   const [email, setEmail] = useState<string>("");
   const [gender, setGender] = useState<string>("");
   const [status, setStatus] = useState<string>("");
-  
-  const [form] = Form.useForm()
+  alert(form)
+  //const [form] = Form.useForm()
   
   const onFinish = () => {
        UserFunction(username,email,gender,status,form);
