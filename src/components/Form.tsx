@@ -8,6 +8,8 @@ interface USER{
   name:string,
  }
 
+const [form] = Form.useForm()
+
 function FormUser({UserFunction,name}):USER{
 
   const [username, setUsername] = useState<string>("");
@@ -15,7 +17,7 @@ function FormUser({UserFunction,name}):USER{
   const [gender, setGender] = useState<string>("");
   const [status, setStatus] = useState<string>("");
   
-  const [form] = Form.useForm()
+  
   
   const onFinish = () => {
        UserFunction(username,email,gender,status,form);
@@ -25,7 +27,7 @@ function FormUser({UserFunction,name}):USER{
     console.log("Failed:", errorInfo);
   };
 
-  //form.setFieldsValue({username:name});
+  form.setFieldsValue({username:name});
 
   return (
       <Row>
@@ -47,7 +49,7 @@ function FormUser({UserFunction,name}):USER{
               ]}
             >
               <Input
-                value={name}
+                value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Username"
