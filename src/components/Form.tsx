@@ -24,6 +24,8 @@ function FormUser({UserFunction}):USER{
     console.log("Failed:", errorInfo);
   };
 
+  form.setFieldsValue({username:"Domingos"});
+
   return (
       <Row>
         <Col span={14} offset={9}>
