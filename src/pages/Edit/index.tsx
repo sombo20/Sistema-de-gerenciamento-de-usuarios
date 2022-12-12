@@ -94,7 +94,7 @@ const EditUser = () => {
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} />
+     <FormUser UserFunction={updateUser} edit={1}/>
     </>
   );
 };
