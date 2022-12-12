@@ -6,9 +6,12 @@ import { useState ,useEffect} from "react";
 interface USER{
   UserFunction:()=>void,
   name:string,
+  userEmail:string,
+  userGender:string,
+  userStatus:string,
  }
 
-function FormUser({UserFunction,name}):USER{
+function FormUser({UserFunction,name, userEmail, userGender, userStatus}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -38,7 +41,9 @@ function FormUser({UserFunction,name}):USER{
             initialValues={
             { 
                username: name,
-               email:"miguel@gmail.com"
+               email: userEmail,
+               gender: userGender,
+               status: userStatus
              }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
