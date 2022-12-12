@@ -6,12 +6,9 @@ import { useState ,useEffect} from "react";
 interface USER{
   userfunction:()=>void,
   name:string,
-  useremail:string,
-  usergender:string,
-  userstatus:string,
  }
 
-function FormUser({userfunction,name,useremail, usergender, userstatus}):USER{
+function FormUser({userfunction,name}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -28,7 +25,7 @@ function FormUser({userfunction,name,useremail, usergender, userstatus}):USER{
     console.log("Failed:", errorInfo);
   };
 
-  //setUsername ("Angolaaa")
+  setUsername ("Angolaaa")
 
   return (
       <Row>
