@@ -56,6 +56,7 @@ const EditUser = () => {
     }
   }
 
+/*
   async function request(){
       try {
         const response = await fetch(`${url}${id}`, {
@@ -80,6 +81,8 @@ const EditUser = () => {
   useEffect(()=>{
      request()
    },[]);
+
+*/
   
   const { Title } = Typography;
 
