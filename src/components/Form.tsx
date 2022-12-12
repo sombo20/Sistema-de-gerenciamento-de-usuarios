@@ -24,7 +24,9 @@ function FormUser({UserFunction}):USER{
     console.log("Failed:", errorInfo);
   };
 
+ useEffect (()=>{
   setUsername("Domingos");
+  },[]);
 
   return (
       <Row>
