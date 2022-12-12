@@ -6,9 +6,10 @@ import request from './Request'
 
 interface USER{
   UserFunction:()=>void,
+  edit:number
  }
 
-function FormUser({UserFunction,userDates}):USER{
+function FormUser({UserFunction,edit}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -26,7 +27,8 @@ function FormUser({UserFunction,userDates}):USER{
     console.log("Failed:", errorInfo);
   };
 
-  request(form)
+   request(form)
+    alert(edit)
 
   return (
       <Row>
