@@ -16,7 +16,7 @@ export default async function request(form) {
         });
 
        const data = await response.json();
-        form.setFieldsValue({
+        form.onValuesChange({
           username: data.name,
           email: data.email,
           status: data.status,
