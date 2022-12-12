@@ -44,7 +44,7 @@ function FormUser({UserFunction}):USER{
               ]}
             >
               <Input
-                value={"Angolaaa"}
+                value="Angolaaa"
                 onChange={(e) => setUsername(e.target.value)}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Username"
