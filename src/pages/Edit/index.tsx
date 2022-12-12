@@ -44,7 +44,7 @@ const EditUser = () => {
          openNotification("Edition","Success")
       }else if(data[0].message.indexOf("has already been taken") != -1){
         openNotification(data[0].field,data[0].message)
-     }else if(dados[0].message.indexOf( "is invalid") != -1){
+     }else if(data[0].message.indexOf( "is invalid") != -1){
        openNotification(data[0].field,data[0].message)
      }else{
        openNotification(data[0].field,data[0].message)
@@ -80,10 +80,6 @@ const EditUser = () => {
 
   
   const { Title } = Typography;
-
-  useEffect (()=>{
-  
-},[])
 
   return (
     <>
