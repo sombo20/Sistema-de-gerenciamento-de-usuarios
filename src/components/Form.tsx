@@ -2,7 +2,9 @@ import { Button,Form, Input, Radio } from "antd";
 import { Col, Row } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState ,useEffect} from "react";
-import request from './Request'
+import { useParams } from "react-router-dom";
+
+//import request from './Request'
 
 interface USER{
   UserFunction:()=>void,
@@ -15,8 +17,7 @@ function FormUser({UserFunction,edit}):USER{
   const [email, setEmail] = useState<string>("");
   const [gender, setGender] = useState<string>("");
   const [status, setStatus] = useState<string>("");
-  const token = import.meta.env.VITE_APP_TOKEN;
-  const url = import.meta.env.VITE_APP_URL;
+  
   const [form] = Form.useForm()
 
   const onFinish = () => {
@@ -27,13 +28,35 @@ function FormUser({UserFunction,edit}):USER{
     console.log("Failed:", errorInfo);
   };
 
-   if(edit == 1){ 
+async function request(form) {
+     const { id } = useParams();
+     const token = import.meta.env.VITE_APP_TOKEN;
+     const url = import.meta.env.VITE_APP_URL;
+     
+      try {
+        const response = await fetch(`${url}${id}`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+       const data = await response.json();
+        form.setFieldsValue({
+          username: data.name,
+          email: data.email,
+          status: data.status,
+          gender: data.gender,
+        });
+      } catch (error) {
+        //openNotification("Error","Please try again")
+      }
+    };
+
+   if(edit == 1){
       request(form)
-      edit =0;
-   }else{
-     request()
-   }
-    
+    }
 
   return (
       <Row>
