@@ -33,7 +33,6 @@ const Home = () => {
       
       
     } catch (error) {
-    
     }finally{
       setLoading (false)
     }
