@@ -89,7 +89,7 @@ const EditUser = () => {
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser userfunction={updateUser} edit={0}/>
+     <FormUser UserFunction={updateUser} />
     </>
   );
 }; 
