@@ -4,8 +4,6 @@ import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState ,useEffect} from "react";
 import { useParams } from "react-router-dom";
 
-//import request from './Request'
-
 interface USER{
   UserFunction:()=>void,
   edit:number
@@ -28,7 +26,8 @@ function FormUser({UserFunction,edit}):USER{
     console.log("Failed:", errorInfo);
   };
 
-async function request(form) {
+useEffect (()=>{
+ const request = async (form) {
      const { id } = useParams();
      const token = import.meta.env.VITE_APP_TOKEN;
      const url = import.meta.env.VITE_APP_URL;
@@ -54,9 +53,10 @@ async function request(form) {
       }
     };
 
-   if(edit == 1){
-      request(form)
-    }
+  if(edit == 1){
+     request(form)
+   }
+},[])
 
   return (
       <Row>
