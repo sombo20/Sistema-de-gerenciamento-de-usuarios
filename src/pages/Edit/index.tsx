@@ -21,8 +21,7 @@ const EditUser = () => {
 
   async function updateUser(userName:string,userEmail:string,userGender:string,userStatus:string,form){
     
-  try {
-      
+  try {  
       const dates = JSON.stringify({
         name:  userName,
         email: userEmail,
