@@ -27,8 +27,8 @@ function FormUser({UserFunction,edit}):USER{
     console.log("Failed:", errorInfo);
   };
 
-   request(form)
-    alert(edit)
+   if(edit == 1){ request(form) }
+    
 
   return (
       <Row>
