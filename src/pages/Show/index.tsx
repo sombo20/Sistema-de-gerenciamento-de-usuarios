@@ -89,7 +89,7 @@ const request = async function () {
       const data = await response.json();
       
     } catch (error) {
-      
+     request() 
       openNotification()
     }
   };
