@@ -26,7 +26,7 @@ export default function ShowUserDetails() {
   const [load, setLoad] = useState(false);
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-
+  const [foundUser,setFoundUser] = useState(false);
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = () => {
@@ -60,8 +60,10 @@ const request = async function () {
 
         const message = data.message;
         if (message.indexOf("Resource not found") != -1) {
-          naviagate("/");
-        }
+           setFoundUser(true)
+        }else{
+         setFoundUser (false)
+       }
       } catch (error) {
       } finally {
         setLoad(false);
@@ -85,9 +87,9 @@ const request = async function () {
       });
 
       const data = await response.json();
-      alert()
+      
     } catch (error) {
-      naviagate("/");
+      
       openNotification()
     }
   };
@@ -101,6 +103,8 @@ const request = async function () {
           <Spin size="large" />
         </Space>
       )}
+
+      {!foundUser &&(<h1>User Bot found</h1>)}
 
       {!load && (
         <Card style={{ width: 300 }}>
