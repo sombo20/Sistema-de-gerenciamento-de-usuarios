@@ -7,6 +7,10 @@ import FormUser from "../../components/Form";
 
 const EditUser = () => {
   const { id } = useParams();
+  const [username, setUsername] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [gender, setGender] = useState<string>("");
+  const [status, setStatus] = useState<string>("");
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
@@ -52,9 +56,8 @@ const EditUser = () => {
     }
   }
 
-
-/*
-  const request = async () {
+  useEffect(()=>{
+    const request = async ()=>{
      const { id } = useParams();
      const token = import.meta.env.VITE_APP_TOKEN;
      const url = import.meta.env.VITE_APP_URL;
@@ -69,18 +72,17 @@ const EditUser = () => {
         });
 
        const data = await response.json();
-        
+        setUsername(data.name)
+        setEmail (data.email)
+        setGender(data.gender)
+        setStatus(data.status)
       } catch (error) {
         
       }
     };
-   
 
-  useEffect(()=>{
      request()
    },[]);
-
-*/
   
   const { Title } = Typography;
 
@@ -93,7 +95,7 @@ const EditUser = () => {
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} />
+     <FormUser UserFunction={updateUser} name={username} userEmail={email} userGender={gender} userStatus={status}/>
     </>
   );
 }; 
