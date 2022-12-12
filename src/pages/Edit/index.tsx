@@ -58,10 +58,6 @@ const EditUser = () => {
 
   useEffect(()=>{
     const request = async ()=>{
-     const { id } = useParams();
-     const token = import.meta.env.VITE_APP_TOKEN;
-     const url = import.meta.env.VITE_APP_URL;
-     
       try {
         const response = await fetch(`${url}${id}`, {
           method: "GET",
@@ -76,6 +72,7 @@ const EditUser = () => {
         setEmail (data.email)
         setGender(data.gender)
         setStatus(data.status)
+        alert(data.name)
       } catch (error) {
         
       }
