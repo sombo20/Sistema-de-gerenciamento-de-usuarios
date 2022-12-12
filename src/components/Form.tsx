@@ -28,7 +28,7 @@ function FormUser({UserFunction,edit}):USER{
 
 alert(edit)
 
-useEffect (()=>{
+/*useEffect (()=>{
  const request = async (form) {
      const { id } = useParams();
      const token = import.meta.env.VITE_APP_TOKEN;
@@ -58,7 +58,7 @@ useEffect (()=>{
   if(edit == 1){
      request(form)
    }
-},[])
+},[])*/
 
   return (
       <Row>
