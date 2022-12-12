@@ -82,7 +82,6 @@ const EditUser = () => {
   useEffect(()=>{
      request()
    },[]);
-
 */
   
   const { Title } = Typography;
@@ -96,7 +95,7 @@ const EditUser = () => {
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={""} userEmail={""} userGender={""} userStatus={""}/>
+     <FormUser UserFunction={updateUser}/>
     </>
   );
 }; 
