@@ -62,7 +62,7 @@ const request = async function () {
         if (message.indexOf("Resource not found") != -1) {
            setFoundUser(true)
         }else{
-         setFoundUser (false)
+         setFoundUser(false)
        }
       } catch (error) {
       } finally {
@@ -104,7 +104,7 @@ const request = async function () {
         </Space>
       )}
 
-      {!foundUser &&(<h1>User Bot found</h1>)}
+      {foundUser &&(<h1>User Bot found</h1>)}
 
       {!load && (
         <Card style={{ width: 300 }}>
