@@ -25,7 +25,7 @@ function FormUser({UserFunction,name}):USER{
     console.log("Failed:", errorInfo);
   };
 
-  //form.setFieldsValue({username:name});
+  
 
   return (
       <Row>
@@ -35,7 +35,7 @@ function FormUser({UserFunction,name}):USER{
             form={form}
             labelCol={{ span: 2 }}
             wrapperCol={{ span: 10 }}
-            initialValues={{ username: "Domingos"}}
+            initialValues={{ username: name}}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
