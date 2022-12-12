@@ -5,10 +5,6 @@ import FormUser from "../../components/Form";
 const Register = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  
- 
- 
-
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = (title:string,message:string) => {
@@ -47,11 +43,11 @@ const Register = () => {
       }else if(data[0].message.indexOf("has already been taken") != -1){
         openNotification(data[0].field,data[0].message)
      }else{
-      openNotification("null")
+        openNotification("null")
     }   
       
     } catch (error) {
-      alert(error)
+      
     }
   }
 
