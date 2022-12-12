@@ -24,10 +24,6 @@ function FormUser({UserFunction}):USER{
     console.log("Failed:", errorInfo);
   };
 
- useEffect (()=>{
-  setUsername("Domingos");
-  },[]);
-
   return (
       <Row>
         <Col span={14} offset={9}>
@@ -48,7 +44,7 @@ function FormUser({UserFunction}):USER{
               ]}
             >
               <Input
-                value={username}
+                value={"Angolaaa"}
                 onChange={(e) => setUsername(e.target.value)}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Username"
