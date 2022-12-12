@@ -35,7 +35,7 @@ function FormUser({UserFunction,name}):USER{
             form={form}
             labelCol={{ span: 2 }}
             wrapperCol={{ span: 10 }}
-            initialValues={{ remember: false }}
+            initialValues={{ username: "Domingos"}}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
