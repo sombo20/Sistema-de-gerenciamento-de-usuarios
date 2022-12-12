@@ -94,6 +94,6 @@ const EditUser = () => {
      <FormUser userfunction={updateUser} name={"Vicente"} useremail={"angola@gmail.com"} usergender={"male"} userstatus={"active"}/>
     </>
   );
-};
+}; 
 
 export default EditUser;
