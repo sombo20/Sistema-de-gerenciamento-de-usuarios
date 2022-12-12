@@ -35,7 +35,11 @@ function FormUser({UserFunction,name}):USER{
             form={form}
             labelCol={{ span: 2 }}
             wrapperCol={{ span: 10 }}
-            initialValues={{ username: name}}
+            initialValues={
+            { 
+               username: name,
+               email:"miguel@gmail.com"
+             }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
