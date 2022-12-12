@@ -5,10 +5,9 @@ import { useState ,useEffect} from "react";
 
 interface USER{
   UserFunction:()=>void,
-  edit:number,
  }
 
-function FormUser({UserFunction,edit}):USER{
+function FormUser({UserFunction}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -17,15 +16,13 @@ function FormUser({UserFunction,edit}):USER{
   
   const [form] = Form.useForm()
   
-  const onFinish =()=> {
+  const onFinish = () => {
        UserFunction(username,email,gender,status,form);
    }
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
-   
-  alert (edit)
 
   return (
       <Row>
