@@ -52,7 +52,7 @@ useEffect (()=>{
         //openNotification("Error","Please try again")
       }
     };
-
+   alert(edit)
   if(edit == 1){
      request(form)
    }
