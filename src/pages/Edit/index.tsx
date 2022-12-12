@@ -72,7 +72,7 @@ const EditUser = () => {
        const data = await response.json();
         
       } catch (error) {
-        //openNotification("Error","Please try again")
+        
       }
     };
    
