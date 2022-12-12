@@ -5,7 +5,8 @@ export default async function request(form) {
      const { id } = useParams();
      const token = import.meta.env.VITE_APP_TOKEN;
      const url = import.meta.env.VITE_APP_URL;
-
+     alert(form)
+     alert(`${id}`)
       try {
         const response = await fetch(`${url}${id}`, {
           method: "GET",
