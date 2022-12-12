@@ -23,7 +23,7 @@ function FormUser({userfunction,name,useremail, usergender, userstatus}):USER{
   
   const onFinish =()=> {
        userfunction(username,email,gender,status,form);
-   };
+   }
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
