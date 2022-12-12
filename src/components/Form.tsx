@@ -5,11 +5,11 @@ import { useState ,useEffect} from "react";
 import { useParams } from "react-router-dom";
 
 interface USER{
-  UserFunction:()=>void,
-  edit:number
+  userfunction:()=>void,
+  edit:boolean
  }
 
-function FormUser({UserFunction,edit}):USER{
+function FormUser({userfunction,edit}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
