@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MenuItem from "../../header/Menu";
-import { Card, Button, Spin, Space ,notification} from "antd";
+import { Card, Button, Spin, Space ,notification, Typography} from "antd";
 import { Link, useNavigate } from "react-router-dom";
 
 interface Userdates {
@@ -11,6 +11,8 @@ interface Userdates {
   gender: string;
   status: string;
 }
+
+const { Title } = Typography;
 
 export default function ShowUserDetails() {
   const { id } = useParams();
@@ -104,7 +106,7 @@ const request = async function () {
         </Space>
       )}
 
-      {foundUser &&(<h1>User Not found</h1>)}
+      {foundUser &&(<Title level={5}>User Not Found</Title>)}
 
       {!load && !foundUser && (
         <Card style={{ width: 300 }}>
