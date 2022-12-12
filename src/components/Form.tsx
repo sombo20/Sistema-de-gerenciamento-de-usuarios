@@ -29,7 +29,7 @@ function FormUser({userfunction,name,useremail, usergender, userstatus}):USER{
     console.log("Failed:", errorInfo);
   };
 
-  setUsername ("Angolaaa")
+  //setUsername ("Angolaaa")
 
   return (
       <Row>
