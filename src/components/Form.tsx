@@ -22,7 +22,7 @@ function FormUser({userfunction,name,useremail, usergender, userstatus}):USER{
   const [form] = Form.useForm()
   
   const onFinish = () => {
-       UserFunction(username,email,gender,status,form);
+       userfunction(username,email,gender,status,form);
    };
 
   const onFinishFailed = (errorInfo: any) => {
