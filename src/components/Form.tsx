@@ -26,6 +26,8 @@ function FormUser({UserFunction,edit}):USER{
     console.log("Failed:", errorInfo);
   };
 
+alert(edit)
+
 useEffect (()=>{
  const request = async (form) {
      const { id } = useParams();
@@ -52,7 +54,7 @@ useEffect (()=>{
         //openNotification("Error","Please try again")
       }
     };
-   alert(edit)
+   
   if(edit == 1){
      request(form)
    }
