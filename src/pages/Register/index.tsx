@@ -46,9 +46,7 @@ const Register = () => {
         openNotification("null")
     }   
       
-    } catch (error) {
-      
-    }
+    }catch(error){}
   }
 
  
