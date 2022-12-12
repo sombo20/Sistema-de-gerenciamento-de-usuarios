@@ -54,30 +54,6 @@ const EditUser = () => {
       alert(error);
     }
   }
-
- async function request(form) {
-     
-      try {
-        const response = await fetch(`${url}${id}`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-
-        const data = await response.json();
-        formState.setFieldsValue({
-          username: data.name,
-          email: data.email,
-          status: data.status,
-          gender: data.gender,
-        });
-      } catch (error) {
-        openNotification("Error","Please try again")
-      }
-    };
-
   
   const { Title } = Typography;
 
