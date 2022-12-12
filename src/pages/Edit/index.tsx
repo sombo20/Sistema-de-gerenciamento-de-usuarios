@@ -2,7 +2,7 @@ import MenuItem from "../../header/Menu";
 import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
 import FormUser from "../../components/Form";
-
+import {useState} from 'react'
 
 const EditUser = () => {
   const { id } = useParams();
@@ -22,14 +22,14 @@ const EditUser = () => {
     });
   };
 
-  async function updateUser(username:string,useremail:string,usergender:string,userstatus:string,form){
+  async function updateUser(userName:string,userEmail:string,userGender:string,userStatus:string,form){
     
   try {  
       const dates = JSON.stringify({
-        name:  username,
-        email: useremail,
-        gender: usergender,
-        status: userstatus,
+        name:  userName,
+        email: userEmail,
+        gender: userGender,
+        status: userStatus,
       });
 
       const response = await fetch(`${url}${id}`, {
@@ -55,33 +55,6 @@ const EditUser = () => {
     } catch (error) {
     }
   }
-
-/*
-  async function request(){
-      try {
-        const response = await fetch(`${url}${id}`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-
-       const data = await response.json();
-        setUsername(data.name)
-        setEmail (data.email)
-        setGender(data.gender)
-        setStatus(data.status)
-        alert(data.name)
-      } catch (error) {
-        
-      }
-    };
-
-  useEffect(()=>{
-     request()
-   },[]);
-*/
   
   const { Title } = Typography;
 
