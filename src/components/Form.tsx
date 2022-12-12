@@ -4,11 +4,11 @@ import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState ,useEffect} from "react";
 
 interface USER{
-  userfunction:()=>void,
-  name:string,
+  UserFunction:()=>void,
+  edit:number
  }
 
-function FormUser({userfunction,name}):USER{
+function FormUser({UserFunction,edit}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -18,13 +18,14 @@ function FormUser({userfunction,name}):USER{
   const [form] = Form.useForm()
   
   const onFinish =()=> {
-       userfunction(username,email,gender,status,form);
+       UserFunction(username,email,gender,status,form);
    }
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
-
+   
+  alert (edit)
   setUsername ("Angolaaa")
 
   return (
