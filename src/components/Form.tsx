@@ -2,7 +2,6 @@ import { Button,Form, Input, Radio } from "antd";
 import { Col, Row } from "antd";
 import { UserOutlined, MailOutlined } from "@ant-design/icons";
 import { useState ,useEffect} from "react";
-import { useParams } from "react-router-dom";
 
 interface USER{
   userfunction:()=>void,
