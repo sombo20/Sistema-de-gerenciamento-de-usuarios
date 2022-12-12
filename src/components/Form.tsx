@@ -30,6 +30,8 @@ function FormUser({UserFunction,edit}):USER{
    if(edit == 1){ 
       request(form)
       edit =0;
+   }else{
+     request()
    }
     
 
