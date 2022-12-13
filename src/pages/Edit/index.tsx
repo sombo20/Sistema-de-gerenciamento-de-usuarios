@@ -97,8 +97,7 @@ useEffect (()=>{
 },[])
 
   const { Title } = Typography;
-  let ano = "Miguel"
-  alert(`${userdates.name}`)
+  let ano = `${userdates.name}`
   return (
     <>
       <MenuItem />
