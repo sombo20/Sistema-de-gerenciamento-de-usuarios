@@ -71,7 +71,7 @@ async function request(){
       }
     };
   
- useEffect (()=>{
+ useEffect(()=>{
   request()
 },[])
 
