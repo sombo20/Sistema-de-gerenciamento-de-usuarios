@@ -12,10 +12,10 @@ const EditUser = () => {
   const url = import.meta.env.VITE_APP_URL;
   
   const openNotification = (title:string,message:string) => {
-    api.open({
+    api.open({ 
       message: title,
       description: message,
-      duration: 3,
+      duration: 2,
     });
   };
 
