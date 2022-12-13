@@ -54,7 +54,8 @@ const EditUser = () => {
   }
 
 
-async function request(){
+useEffect (()=>{
+   const request = async () =>{
       try {
         const response = await fetch(`${url}${id}`, {
           method: "GET",
@@ -66,16 +67,13 @@ async function request(){
 
        const data = await response.json();      
           setA(data.name)
-           alert(data.id)
+           alert(`${a}`)
       } catch (error) {
         
       }
-    };
-  
+   }
 
-useEffect (()=>{
   request()
-  alert (`${a}`)
 },[])
 
   const { Title } = Typography;
