@@ -1,6 +1,7 @@
 import MenuItem from "../../header/Menu";
 import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
+import { useState } from 'react'
 import FormUser from "../../components/Form";
 
 
@@ -10,7 +11,7 @@ const EditUser = () => {
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-
+  const [name,setName] = useState<string>("");
   const openNotification = (title:string,message:string) => {
     api.open({
       message: title,
