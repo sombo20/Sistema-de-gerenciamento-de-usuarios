@@ -97,7 +97,7 @@ useEffect (()=>{
 },[])
 
   const { Title } = Typography;
-  let ano = "Miguel mingo"
+  let ano = "Miguel"
   alert(`${userdates.name}`)
   return (
     <>
