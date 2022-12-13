@@ -65,7 +65,7 @@ async function request(){
         });
 
        const data = await response.json();      
-         alert(data.name)
+         alert(data.email)
       } catch (error) {
         
       }
