@@ -3,7 +3,7 @@ import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
 import FormUser from "../../components/Form";
 
-window.a = ""
+let a="";
 
 const EditUser = () => {
 
