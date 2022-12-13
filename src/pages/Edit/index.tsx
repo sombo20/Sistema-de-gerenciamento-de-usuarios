@@ -66,7 +66,7 @@ async function request(){
         });
 
        const data = await response.json();      
-          alert(data.name)
+          a = data.name 
           alert(a)
       } catch (error) {
         
