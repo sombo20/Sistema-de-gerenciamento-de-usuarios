@@ -66,8 +66,7 @@ async function request(){
         });
 
        const data = await response.json();      
-         alert(data.email)
-         alert(name)
+         setName(data.name)
       } catch (error) {
         
       }
@@ -86,7 +85,7 @@ async function request(){
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={"55"} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
+     <FormUser UserFunction={updateUser} name={name} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
      </>
   );
 }; 
