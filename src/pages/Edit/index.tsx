@@ -74,8 +74,8 @@ async function request(){
   
 
 useEffect (()=>{
-  alert (`${a}`)
   request()
+  alert (`${a}`)
 },[])
 
   const { Title } = Typography;
