@@ -15,7 +15,7 @@ const EditUser = () => {
     api.open({ 
       message: title,
       description: message,
-      duration: 2,
+      duration: 3,
     });
   };
 
