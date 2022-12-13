@@ -1,7 +1,7 @@
 import MenuItem from "../../header/Menu";
 import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import FormUser from "../../components/Form";
 
 const EditUser = () => {
@@ -73,8 +73,11 @@ async function request(){
     };
   
 
-  request()
+useEffect (()=>{
   alert (`${a}`)
+  request()
+},[])
+
   const { Title } = Typography;
     
   return (
