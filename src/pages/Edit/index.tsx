@@ -1,7 +1,7 @@
 import MenuItem from "../../header/Menu";
 import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import FormUser from "../../components/Form";
 
 
@@ -73,7 +73,9 @@ async function request(){
       }
     };
   
+ useEffect (()=>{
   request()
+},[])
 
   const { Title } = Typography;
     
