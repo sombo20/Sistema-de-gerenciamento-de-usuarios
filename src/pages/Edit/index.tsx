@@ -1,10 +1,10 @@
 import MenuItem from "../../header/Menu";
 import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
-import { useState, useEffect} from 'react'
+import { useEffect} from 'react'
 import FormUser from "../../components/Form";
 
-let a;
+let a="";
 
 const EditUser = () => {
 
