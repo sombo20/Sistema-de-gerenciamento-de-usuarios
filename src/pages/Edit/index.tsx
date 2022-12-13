@@ -2,7 +2,7 @@ import MenuItem from "../../header/Menu";
 import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
 import FormUser from "../../components/Form";
-
+import { useState} from 'react'
 
 const EditUser = () => {
 
