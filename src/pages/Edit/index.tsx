@@ -3,8 +3,6 @@ import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
 import FormUser from "../../components/Form";
 
-let username = "";
-
 
 const EditUser = () => {
 
@@ -12,7 +10,9 @@ const EditUser = () => {
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  
+  let username = "";
+
+
   const openNotification = (title:string,message:string) => {
     api.open({
       message: title,
@@ -68,6 +68,7 @@ async function request(){
 
        const data = await response.json();      
          username = data.name;
+         alert(username)
       } catch (error) {
         
       }
