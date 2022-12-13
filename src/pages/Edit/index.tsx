@@ -3,6 +3,8 @@ import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
 import FormUser from "../../components/Form";
 
+window.a = ""
+
 const EditUser = () => {
 
   const { id } = useParams(); 
@@ -64,7 +66,9 @@ async function request(){
         });
 
        const data = await response.json();      
-         alert(data.email)
+       
+          a = data.name
+          alert(a)
       } catch (error) {
         
       }
