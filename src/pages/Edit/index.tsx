@@ -67,7 +67,6 @@ async function request(){
 
        const data = await response.json();      
           a = data.name 
-          alert(a)
       } catch (error) {
         
       }
@@ -75,7 +74,7 @@ async function request(){
   
 
   request()
-
+  alert (a)
   const { Title } = Typography;
     
   return (
