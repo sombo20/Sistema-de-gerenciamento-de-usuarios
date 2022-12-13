@@ -10,8 +10,6 @@ const EditUser = () => {
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  let username = "";
-
 
   const openNotification = (title:string,message:string) => {
     api.open({
@@ -67,8 +65,7 @@ async function request(){
         });
 
        const data = await response.json();      
-         username = data.name;
-         alert(username)
+         alert(data.name)
       } catch (error) {
         
       }
