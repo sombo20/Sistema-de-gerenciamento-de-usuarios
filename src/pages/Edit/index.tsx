@@ -54,7 +54,7 @@ const EditUser = () => {
   }
   
   const { Title } = Typography;
-
+  let a = "Minguito"
   return (
     <>
       <MenuItem />
@@ -64,7 +64,7 @@ const EditUser = () => {
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={"Vicente"} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
+     <FormUser UserFunction={updateUser} name={a} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
      </>
   );
 }; 
