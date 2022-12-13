@@ -5,9 +5,13 @@ import { useState} from "react";
 
 interface USER{
   UserFunction:()=>void,
+  name:string,
+  userEmail:string,
+  userGender:string,
+  userStatus:string,
  }
 
-function FormUser({UserFunction}):USER{
+function FormUser({UserFunction, name,userEmail, userGender, userStatus}):USER{
 
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -36,7 +40,10 @@ function FormUser({UserFunction}):USER{
             wrapperCol={{ span: 10 }}
             initialValues={
             {
-               username:"Domingos"
+               username:name,
+               email:userEmail,
+               gender: userGender,
+               status: userStatus
              }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
