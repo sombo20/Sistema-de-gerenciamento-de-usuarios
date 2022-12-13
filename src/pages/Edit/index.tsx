@@ -67,7 +67,8 @@ useEffect (()=>{
 
        const data = await response.json();      
           setA(data.name)
-           alert(`${a}`)
+           alert(a)
+           alert(data.email)
       } catch (error) {
         
       }
