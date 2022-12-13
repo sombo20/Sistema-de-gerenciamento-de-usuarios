@@ -72,6 +72,7 @@ async function request(){
     };
   
   request()
+
   const { Title } = Typography;
     
   return (
