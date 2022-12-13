@@ -7,6 +7,7 @@ import FormUser from "../../components/Form";
 const EditUser = () => {
 
   const { id } = useParams();
+  const [name,setName] = useState<string>("");
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
@@ -54,7 +55,7 @@ const EditUser = () => {
   }
   
   const { Title } = Typography;
-  let a = "Minguito"
+    setName("Miguel")
   return (
     <>
       <MenuItem />
