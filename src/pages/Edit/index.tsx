@@ -1,9 +1,8 @@
 import MenuItem from "../../header/Menu";
 import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
+import { useState } from 'react'
 import FormUser from "../../components/Form";
-
-let a = "";
 
 const EditUser = () => {
 
@@ -11,7 +10,7 @@ const EditUser = () => {
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  
+  const [a,setA] = useState("");
   const openNotification = (title:string,message:string) => {
     api.open({ 
       message: title,
@@ -66,7 +65,8 @@ async function request(){
         });
 
        const data = await response.json();      
-          a = data.name 
+          setA(data.name)
+           alert(data.id)
       } catch (error) {
         
       }
@@ -74,7 +74,7 @@ async function request(){
   
 
   request()
-  alert (a)
+  alert (`${a}`)
   const { Title } = Typography;
     
   return (
