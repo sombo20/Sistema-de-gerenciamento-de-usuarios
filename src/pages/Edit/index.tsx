@@ -93,12 +93,12 @@ useEffect (()=>{
       }
    }
 
-  request()
+    request()
+    let teste = userdates.name
+   alert (teste)
 },[])
 
   const { Title } = Typography;
-  let teste = userdates.name
-   alert (teste)
   return (
     <>
       <MenuItem />
