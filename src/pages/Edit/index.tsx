@@ -2,12 +2,12 @@ import MenuItem from "../../header/Menu";
 import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
 import FormUser from "../../components/Form";
-import { useState} from 'react'
+
+let username = "";
 
 const EditUser = () => {
 
   const { id } = useParams();
-  const [name,setName] = useState<string>("");
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
@@ -55,7 +55,7 @@ const EditUser = () => {
   }
   
   const { Title } = Typography;
-    setName("Miguel")
+    username = "Miguel"
   return (
     <>
       <MenuItem />
@@ -65,7 +65,7 @@ const EditUser = () => {
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={a} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
+     <FormUser UserFunction={updateUser} name={username} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
      </>
   );
 }; 
