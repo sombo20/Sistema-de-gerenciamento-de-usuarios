@@ -6,7 +6,7 @@ import FormUser from "../../components/Form";
 let username = "";
 let useremail = "";
 let usergender = "";
-let userStatus = "";
+let userstatus = "";
 
 const EditUser = () => {
 
@@ -72,7 +72,7 @@ async function request(){
          username = data.name;
          useremail = data.email;
          usergender = data.gender;
-         userStatus = data.status;
+         userstatus = data.status;
       } catch (error) {
         
       }
