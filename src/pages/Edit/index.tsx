@@ -4,9 +4,7 @@ import { useParams } from "react-router-dom";
 import FormUser from "../../components/Form";
 
 let username = "";
-let useremail = "";
-let usergender = "";
-let userstatus = "";
+
 
 const EditUser = () => {
 
@@ -70,9 +68,6 @@ async function request(){
 
        const data = await response.json();      
          username = data.name;
-         useremail = data.email;
-         usergender = data.gender;
-         userstatus = data.status;
       } catch (error) {
         
       }
@@ -90,7 +85,7 @@ async function request(){
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={username} userEmail={useremail} userGender={usergender} userStatus={userstatus}/>
+     <FormUser UserFunction={updateUser} name={username} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
      </>
   );
 }; 
