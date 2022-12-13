@@ -6,7 +6,7 @@ import FormUser from "../../components/Form";
 
 const EditUser = () => {
 
-  const { id } = useParams();
+  const { id } = useParams(); 
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
@@ -15,7 +15,7 @@ const EditUser = () => {
     api.open({
       message: title,
       description: message,
-      duration: 0,
+      duration: 3,
     });
   };
 
