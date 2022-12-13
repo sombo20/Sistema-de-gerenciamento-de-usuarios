@@ -4,13 +4,28 @@ import { useParams } from "react-router-dom";
 import { useState,useEffect } from 'react'
 import FormUser from "../../components/Form";
 
+interface Userdates {
+  id: number;
+  name: string;
+  email: string;
+  gender: string;
+  status: string;
+}
+
+
 const EditUser = () => {
 
   const { id } = useParams(); 
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  const [a,setA] = useState("");
+  const [userdates, setUserdate] = useState<Userdates>({
+    id: 0,
+    name: "",
+    email: "",
+    gender: "",
+    status: "",
+  });
   const openNotification = (title:string,message:string) => {
     api.open({ 
       message: title,
@@ -66,9 +81,13 @@ useEffect (()=>{
         });
 
        const data = await response.json();      
-          setA(data.name)
-           alert(a)
-           alert(data.email)
+          setUserdate({
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          gender: data.gender,
+          status: data.status,
+        });
       } catch (error) {
         
       }
@@ -85,7 +104,7 @@ useEffect (()=>{
       {contextHolder}
       <Row>
         <Col span={8} offset={10}>
-          <Title>Update User</Title>
+          <Title>Update User{userdates.name}</Title>
         </Col>
       </Row>
      <FormUser UserFunction={updateUser} name={"domingos"} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
