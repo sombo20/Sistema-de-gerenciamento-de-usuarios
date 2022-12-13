@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom";
 import { useEffect} from 'react'
 import FormUser from "../../components/Form";
 
-let a="";
-
 const EditUser = () => {
 
   const { id } = useParams();
@@ -67,7 +65,6 @@ async function request(){
         });
 
        const data = await response.json();      
-         a = data.name
          alert(data.email)
       } catch (error) {
         
@@ -76,7 +73,6 @@ async function request(){
   
  useEffect (()=>{
   request()
-  alert(a)
 },[])
 
   const { Title } = Typography;
