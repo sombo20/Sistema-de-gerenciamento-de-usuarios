@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect} from 'react'
 import FormUser from "../../components/Form";
 
+let a;
 
 const EditUser = () => {
 
@@ -11,7 +12,7 @@ const EditUser = () => {
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  const [username,setName] = useState<string>("");
+  //const [username,setName] = useState<string>("");
   const openNotification = (title:string,message:string) => {
     api.open({
       message: title,
@@ -66,8 +67,8 @@ async function request(){
         });
 
        const data = await response.json();      
-         setName(data.name)
-         alert(username)
+         a = data.name
+         alert(data.email)
       } catch (error) {
         
       }
@@ -75,6 +76,7 @@ async function request(){
   
  useEffect (()=>{
   request()
+  alert(a)
 },[])
 
   const { Title } = Typography;
