@@ -11,7 +11,7 @@ const EditUser = () => {
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  const [name,setName] = useState<string>("");
+  const [username,setName] = useState<string>("");
   const openNotification = (title:string,message:string) => {
     api.open({
       message: title,
@@ -67,6 +67,7 @@ async function request(){
 
        const data = await response.json();      
          setName(data.name)
+         alert(username)
       } catch (error) {
         
       }
@@ -85,7 +86,7 @@ async function request(){
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={name} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
+     <FormUser UserFunction={updateUser} name={username} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
      </>
   );
 }; 
