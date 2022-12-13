@@ -88,7 +88,7 @@ async function request(){
           <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={username} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
+     <FormUser UserFunction={updateUser} name={`${username}`} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
      </>
   );
 }; 
