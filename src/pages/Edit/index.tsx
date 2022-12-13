@@ -12,7 +12,7 @@ const EditUser = () => {
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  //const [username,setName] = useState<string>("");
+  
   const openNotification = (title:string,message:string) => {
     api.open({
       message: title,
