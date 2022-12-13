@@ -53,7 +53,26 @@ const EditUser = () => {
     } catch (error) {
     }
   }
+
+
+async function request(){
+      try {
+        const response = await fetch(`${url}${id}`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+       const data = await response.json();      
+        alert(data.name)
+      } catch (error) {
+        
+      }
+    };
   
+  request()
   const { Title } = Typography;
     username = "Miguel"
   return (
