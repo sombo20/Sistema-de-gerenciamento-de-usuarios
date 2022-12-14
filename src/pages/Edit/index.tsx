@@ -99,7 +99,7 @@ useEffect (()=>{
 },[])
 
   const { Title } = Typography;
-  alert(p)
+  
   return (
     <>
       <MenuItem />
@@ -109,7 +109,7 @@ useEffect (()=>{
           <Title>Update User </Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={"12345"} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
+     <FormUser UserFunction={updateUser} name={p} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
      </>
   );
 }; 
