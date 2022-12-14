@@ -20,7 +20,7 @@ function FormUser({UserFunction, name,userEmail, userGender, userStatus}):USER{
   
   const [form] = Form.useForm()
 
-  SetEmail(userEmail)
+  setEmail(userEmail)
   
   const onFinish = () => {
        UserFunction(username,email,gender,status,form);
