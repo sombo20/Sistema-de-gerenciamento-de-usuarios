@@ -69,7 +69,7 @@ const EditUser = () => {
   }
 
 
-useEffect (async ()=>{
+useEffect (()=>{
    /*const request = async () =>{
       try {
         const response = await fetch(`${url}${id}`, {
@@ -95,24 +95,6 @@ useEffect (async ()=>{
 
     request()
     */
-
-    await fetch(`${url}${id}`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }).then((response)=>{
-           
-          const data = await response.json();      
-          setUserdate({
-          id: data.id,
-          name: data.name,
-          email: data.email,
-          gender: data.gender,
-          status: data.status,
-        });
-     })
 },[])
 
   const { Title } = Typography;
