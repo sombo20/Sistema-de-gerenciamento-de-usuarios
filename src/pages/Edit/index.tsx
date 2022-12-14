@@ -7,7 +7,8 @@ import FormUser from "../../components/Form";
 
 window.name = ""
 window.email = ""
-
+window.gender = ""
+window.status = ""
 
 const EditUser = () => {
 
@@ -72,6 +73,8 @@ useEffect (()=>{
        const data = await response.json();              
         name = data.name;
         email = data.email
+        gender = data.gender
+        status = data.status
       } catch (error) {
         
       }
@@ -90,7 +93,7 @@ useEffect (()=>{
           <Title>Update User </Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={name} userEmail={email} userGender={"male"} userStatus={"active"}/>
+     <FormUser UserFunction={updateUser} name={name} userEmail={email} userGender={gender} userStatus={status}/>
      </>
   );
 }; 
