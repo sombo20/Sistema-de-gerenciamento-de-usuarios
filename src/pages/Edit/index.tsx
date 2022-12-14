@@ -103,11 +103,21 @@ useEffect (()=>{
             "Content-Type": "application/json",
           },
         }).then((response)=>{
-            alert(await response.json())
-        })
+           
+          const data = await response.json();      
+          setUserdate({
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          gender: data.gender,
+          status: data.status,
+        });
+     })
 },[])
 
   const { Title } = Typography;
+  const t = userdates.name
+  alert(t)
   return (
     <>
       <MenuItem />
