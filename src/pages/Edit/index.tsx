@@ -106,7 +106,7 @@ useEffect (()=>{
           <Title>Update User {userdates.gender}</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={"1"} userEmail={"@"} userGender={"male"} userStatus={"active"}/>
+     <FormUser UserFunction={updateUser} name={userdates.name} userEmail={"@"} userGender={"male"} userStatus={"active"}/>
      </>
   );
 }; 
