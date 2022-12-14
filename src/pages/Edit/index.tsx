@@ -69,7 +69,7 @@ const EditUser = () => {
   }
 
 
-useEffect (()=>{
+useEffect (async ()=>{
    /*const request = async () =>{
       try {
         const response = await fetch(`${url}${id}`, {
@@ -96,7 +96,7 @@ useEffect (()=>{
     request()
     */
 
-    fetch(`${url}${id}`, {
+    await fetch(`${url}${id}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
