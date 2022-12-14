@@ -70,7 +70,7 @@ const EditUser = () => {
 
 
 useEffect (()=>{
-   const request = async () =>{
+   /*const request = async () =>{
       try {
         const response = await fetch(`${url}${id}`, {
           method: "GET",
@@ -94,7 +94,17 @@ useEffect (()=>{
    }
 
     request()
-    
+    */
+
+    fetch(`${url}${id}`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }).then((response)=>{
+            alert(response.json())
+        })
 },[])
 
   const { Title } = Typography;
