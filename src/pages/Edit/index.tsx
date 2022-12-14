@@ -12,6 +12,7 @@ interface Userdates {
   status: string;
 }
 
+window.p = ""
 
 const EditUser = () => {
 
@@ -88,7 +89,8 @@ useEffect (()=>{
           gender: data.gender,
           status: data.status,
         });
-      alert(data.id)
+      p = 5;
+      alert(p)
       } catch (error) {
         
       }
