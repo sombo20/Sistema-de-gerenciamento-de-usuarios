@@ -40,7 +40,7 @@ const EditUser = () => {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-        body: dates,
+        body:dates,
       });
 
       const data = await response.json();
