@@ -20,6 +20,7 @@ function FormUser({UserFunction, name,userEmail, userGender, userStatus}):USER{
   
   const [form] = Form.useForm()
   
+  alert (name)
   const onFinish = () => {
        UserFunction(username,email,gender,status,form);
    }
@@ -37,14 +38,7 @@ function FormUser({UserFunction, name,userEmail, userGender, userStatus}):USER{
             name="basic"
             form={form}
             labelCol={{ span: 2 }}
-            wrapperCol={{ span: 10 }}
-            initialValues={
-            {
-               username:name,
-               email:userEmail,
-               gender: userGender,
-               status: userStatus
-             }}
+            wrapperCol={{ span: 10 }}    
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
             autoComplete="off"
