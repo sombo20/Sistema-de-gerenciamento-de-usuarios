@@ -96,11 +96,10 @@ useEffect (()=>{
       }
    }
     request()
-  alert(p)
 },[])
 
   const { Title } = Typography;
- 
+  alert(p)
   return (
     <>
       <MenuItem />
