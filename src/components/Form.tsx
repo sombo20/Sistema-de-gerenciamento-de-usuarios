@@ -19,6 +19,8 @@ function FormUser({UserFunction, name,userEmail, userGender, userStatus}):USER{
   const [status, setStatus] = useState<string>("");
   
   const [form] = Form.useForm()
+
+  SetEmail(userEmail)
   
   const onFinish = () => {
        UserFunction(username,email,gender,status,form);
