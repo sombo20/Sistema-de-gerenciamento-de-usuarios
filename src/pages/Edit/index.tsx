@@ -102,8 +102,8 @@ useEffect (()=>{
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
-        }).then((response)=>{
-            alert(response.json())
+        }).then(async (response)=>{
+            alert(await response.json())
         })
 },[])
 
