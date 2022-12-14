@@ -69,7 +69,7 @@ const EditUser = () => {
   }
 
 
-useEffect (()=>{
+useEffect (async ()=>{
    /*const request = async () =>{
       try {
         const response = await fetch(`${url}${id}`, {
