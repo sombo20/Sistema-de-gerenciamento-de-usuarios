@@ -90,12 +90,13 @@ useEffect (()=>{
           status: data.status,
         });
       p = 5;
-      alert(p)
+      
       } catch (error) {
         
       }
    }
     request()
+  alert(p)
 },[])
 
   const { Title } = Typography;
