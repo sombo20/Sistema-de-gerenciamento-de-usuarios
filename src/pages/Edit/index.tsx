@@ -12,29 +12,6 @@ interface Userdates {
   status: string;
 }
 
-const request = async () =>{
-      try {
-        const response = await fetch(`${url}${id}`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-
-       const data = await response.json();      
-         /* setUserdate({
-          id: data.id,
-          name: data.name,
-          email: data.email,
-          gender: data.gender,
-          status: data.status,
-        });*/
-      alert(data.id)
-      } catch (error) {
-        
-      }
-   }
 
 const EditUser = () => {
 
@@ -93,6 +70,29 @@ const EditUser = () => {
 
 
 useEffect (()=>{
+   const request = async () =>{
+      try {
+        const response = await fetch(`${url}${id}`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+       const data = await response.json();      
+         setUserdate({
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          gender: data.gender,
+          status: data.status,
+        });
+      alert(data.id)
+      } catch (error) {
+        
+      }
+   }
     request()
 },[])
 
