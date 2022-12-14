@@ -1,14 +1,16 @@
 import MenuItem from "../../header/Menu";
 import { notification, Col , Row, Typography } from "antd";
 import { useParams } from "react-router-dom";
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
 import FormUser from "../../components/Form";
 
-
-window.name = ""
-window.email = ""
-window.gender = ""
-window.status = ""
+interface Userdates {
+  id: number;
+  name: string;
+  email: string;
+  gender: string;
+  status: string;
+}
 
 const EditUser = () => {
 
@@ -16,7 +18,15 @@ const EditUser = () => {
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  const openNotification = (title:string,message:string) => {
+  const [userdates, setUserdate] = useState<Userdates>({
+    id: 0,
+    name: "",
+    email: "",
+    gender: "",
+    status: "",
+  });
+   
+   const openNotification = (title:string,message:string) => {
     api.open({ 
       message: title,
       description: message,
@@ -71,10 +81,13 @@ useEffect (()=>{
         });
 
        const data = await response.json();              
-        name = data.name;
-        email = data.email
-        gender = data.gender
-        status = data.status
+        setUserdate({
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          gender: data.gender,
+          status: data.status,
+        });
       } catch (error) {
         
       }
@@ -90,10 +103,10 @@ useEffect (()=>{
       {contextHolder}
       <Row>
         <Col span={8} offset={10}>
-          <Title>Update User </Title>
+          <Title>Update User {userdates.gender}</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={name} userEmail={email} userGender={gender} userStatus={status}/>
+     <FormUser UserFunction={updateUser} name={"1"} userEmail={"@"} userGender={"male"} userStatus={"active"}/>
      </>
   );
 }; 
