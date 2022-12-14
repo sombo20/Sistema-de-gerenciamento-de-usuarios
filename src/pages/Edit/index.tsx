@@ -89,7 +89,7 @@ useEffect (()=>{
           gender: data.gender,
           status: data.status,
         });
-      p = 55;
+      p = data.name;
       
       } catch (error) {
         
