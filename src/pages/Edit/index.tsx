@@ -124,7 +124,7 @@ useEffect (()=>{
       {contextHolder}
       <Row>
         <Col span={8} offset={10}>
-          <Title>Update User</Title>
+          <Title>Update User {userdates.id}</Title>
         </Col>
       </Row>
      <FormUser UserFunction={updateUser} name={"12345"} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
