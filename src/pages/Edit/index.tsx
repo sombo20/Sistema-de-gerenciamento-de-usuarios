@@ -97,15 +97,14 @@ useEffect (()=>{
 },[])
 
   const { Title } = Typography;
-  const t = userdates.name
-  alert(t)
+ 
   return (
     <>
       <MenuItem />
       {contextHolder}
       <Row>
         <Col span={8} offset={10}>
-          <Title>Update User {userdates.id}</Title>
+          <Title>Update User </Title>
         </Col>
       </Row>
      <FormUser UserFunction={updateUser} name={"12345"} userEmail={"email"} userGender={"male"} userStatus={"active"}/>
