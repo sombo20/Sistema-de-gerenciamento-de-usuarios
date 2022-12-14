@@ -21,7 +21,6 @@ function FormUser({UserFunction, name,userEmail, userGender, userStatus}):USER{
   const [form] = Form.useForm()
   
   const onFinish = () => {
-       setUsername (name)
        UserFunction(username,email,gender,status,form);
    }
 
