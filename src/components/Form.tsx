@@ -11,8 +11,6 @@ interface USER{
   userStatus:string,
  }
 
-const [form] = Form.useForm()
-
 function FormUser({UserFunction, name,userEmail, userGender, userStatus}):USER{
 
   const [username, setUsername] = useState<string>("");
@@ -20,7 +18,7 @@ function FormUser({UserFunction, name,userEmail, userGender, userStatus}):USER{
   const [gender, setGender] = useState<string>("");
   const [status, setStatus] = useState<string>("");
   
-  
+  const [form] = Form.useForm()
   
   form.setFieldValue("username","Angolaaa")
 
