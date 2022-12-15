@@ -27,7 +27,7 @@ function FormUser({UserFunction, name,userEmail, userGender, userStatus}):USER{
    }
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
+    console.log("Failed: ", errorInfo);
   };
 
   
