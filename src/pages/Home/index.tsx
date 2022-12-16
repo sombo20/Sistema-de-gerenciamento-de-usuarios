@@ -7,7 +7,7 @@ const Home = () => {
   const token = import.meta.env.VITE_APP_TOKEN;
   const [userdates, setUserdate] = useState([]);
   const [Pages,setTotalPages] = useState<any>(null)
-  const [loading,setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   let  page:string = Pages
   let Total  = +page;
  
@@ -44,10 +44,11 @@ const Home = () => {
 
   return (
     <>
-      <MenuItem />
+      <MenuItem active="list" />
       <List
         loading={loading}
         pagination={{
+          showSizeChanger: false,
           pageSize:5,
           total:Total,
           onChange:(page)=>{

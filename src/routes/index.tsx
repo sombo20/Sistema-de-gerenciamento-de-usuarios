@@ -10,11 +10,11 @@ function RouterApp(){
    return(
      <BrowserRouter>
         <Routes>
-            <Route path="/" element={<Home/>}></Route>
-            <Route path="/register" element={<Register/>}></Route>
-            <Route path="/show/user/:id" element={<ShowUserDetails/>}></Route>
-            <Route path="/edit/user/:id" element={<EditUser/>}></Route>
-            <Route path="*" element={<Error/>}></Route>
+            <Route path="/" element={<Home/>} />
+            <Route path="/register" element={<Register/>} />
+            <Route path="/show/user/:id" element={<ShowUserDetails/>} />
+            <Route path="/edit/user/:id" element={<EditUser/>} />
+            <Route path="*" element={<Error/>} />
         </Routes>
      </BrowserRouter>
    )

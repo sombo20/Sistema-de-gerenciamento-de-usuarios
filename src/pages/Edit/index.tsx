@@ -1,31 +1,43 @@
 import MenuItem from "../../header/Menu";
-import { notification, Col , Row, Typography } from "antd";
+import { notification, Col , Row, Typography, Form } from "antd";
 import { useParams } from "react-router-dom";
-import { useEffect,useState } from 'react'
+import { useEffect } from 'react'
 import FormUser from "../../components/Form";
 
-interface Userdates {
-  id: number;
-  name: string;
-  email: string;
-  gender: string;
-  status: string;
-}
-
 const EditUser = () => {
-
+  const [form] = Form.useForm()
   const { id } = useParams(); 
   const [api, contextHolder] = notification.useNotification();
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
-  const [userdates, setUserdate] = useState<Userdates>({
-    id: 0,
-    name: "",
-    email: "",
-    gender: "",
-    status: "",
-  });
-   
+
+  useEffect (()=>{
+    const request = async () =>{
+       try {
+         const response = await fetch(`${url}${id}`, {
+           method: "GET",
+           headers: {
+             Authorization: `Bearer ${token}`,
+             "Content-Type": "application/json",
+           },
+         });
+ 
+        const data = await response.json();      
+        const values = {
+          id: data.id,
+          name: data.name,
+          email: data.email,
+          gender: data.gender,
+          status: data.status,
+        }
+        form.setFieldsValue(values)
+       } catch (error) {
+         
+       }
+    }
+     request()
+ },[])
+ 
    const openNotification = (title:string,message:string) => {
     api.open({ 
       message: title,
@@ -34,15 +46,9 @@ const EditUser = () => {
     });
   };
 
-  async function updateUser(userName:string,userEmail:string,userGender:string,userStatus:string,form){
-    alert (userName)
+  async function updateUser(){
   try {  
-      const dates = JSON.stringify({
-        name:  userName,
-        email: userEmail,
-        gender: userGender,
-        status: userStatus,
-      });
+      const dates = JSON.stringify(form.getFieldsValue());
 
       const response = await fetch(`${url}${id}`, {
         method: "PUT",
@@ -68,33 +74,6 @@ const EditUser = () => {
     }
   }
 
-
-useEffect (()=>{
-   const request = async () =>{
-      try {
-        const response = await fetch(`${url}${id}`, {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
-
-       const data = await response.json();              
-        setUserdate({
-          id: data.id,
-          name: data.name,
-          email: data.email,
-          gender: data.gender,
-          status: data.status,
-        });
-      } catch (error) {
-        
-      }
-   }
-    request()
-},[])
-
   const { Title } = Typography;
   
   return (
@@ -103,10 +82,10 @@ useEffect (()=>{
       {contextHolder}
       <Row>
         <Col span={8} offset={10}>
-          <Title>Update User {userdates.gender}</Title>
+          <Title>Update User</Title>
         </Col>
       </Row>
-     <FormUser UserFunction={updateUser} name={userdates.name} userEmail={"@"} userGender={"male"} userStatus={"active"}/>
+     <FormUser form={form} onSubmit={updateUser} />
      </>
   );
 }; 
