@@ -24,7 +24,6 @@ const EditUser = () => {
  
         const data = await response.json();      
         const values = {
-          id: data.id,
           name: data.name,
           email: data.email,
           gender: data.gender,
