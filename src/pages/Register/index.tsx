@@ -1,8 +1,9 @@
 import MenuItem from "../../header/Menu";
-import { notification, Col, Row ,Typography } from "antd";
+import { notification, Form, Col, Row ,Typography } from "antd";
 import FormUser from "../../components/Form";
 
 const Register = () => {
+  const [form] = Form.useForm()
   const token = import.meta.env.VITE_APP_TOKEN;
   const url = import.meta.env.VITE_APP_URL;
   const [api, contextHolder] = notification.useNotification();
@@ -16,15 +17,10 @@ const Register = () => {
   };
 
 
-  async function sendDates(userName:string,userEmail:string,userGender:string,userStatus:string,form){
+  async function sendDates(){
     
   try {
-      const dates = JSON.stringify({
-        name:  userName,
-        email: userEmail,
-        gender: userGender,
-        status: userStatus,
-      });
+      const dates = JSON.stringify(form.getFieldsValue());
 
       const response = await fetch(`${url}`, {
         method: "POST",
@@ -43,7 +39,7 @@ const Register = () => {
       }else if(data[0].message.indexOf("has already been taken") != -1){
         openNotification(data[0].field,data[0].message)
      }else{
-        openNotification("null")
+        openNotification("null", "???")
     }   
       
     }catch(error){}
@@ -54,14 +50,14 @@ const Register = () => {
 
   return (
     <>
-      <MenuItem />
+      <MenuItem active="register" />
       {contextHolder}
       <Row>
         <Col span={8} offset={10}>
           <Title>Register new user</Title>
         </Col>
       </Row>
-      <FormUser UserFunction={sendDates} />
+      <FormUser form={form} onSubmit={sendDates} />
     </>
   );
 };
