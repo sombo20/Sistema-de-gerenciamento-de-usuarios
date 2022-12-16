@@ -39,7 +39,7 @@ const Register = () => {
       }else if(data[0].message.indexOf("has already been taken") != -1){
         openNotification(data[0].field,data[0].message)
      }else{
-        openNotification("null", "???")
+        openNotification("null", "invalid dates")
     }   
       
     }catch(error){}
